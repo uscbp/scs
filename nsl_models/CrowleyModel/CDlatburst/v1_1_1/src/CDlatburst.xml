@@ -1,0 +1,867 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>CDlatburst</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int CorticalArraySize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>FEFsac_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize, CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>SNCdop_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCgo_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCfovea_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>CDlattan_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>CDindlatburst_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>CDdirlatburst_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cdindlatburst</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cddirlatburst</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CorticalSlowDown</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>basecdlatbursttm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cdlatbursttm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlatfefsacK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlattanK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlatsncK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlatpfcK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlatpfcgoK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlbsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlbsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlbsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDlbsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>CDlatburst</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>128</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>128</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>128</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>128</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>FEFsac_in</name>
+				<parameters>CorticalArraySize, CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>SNCdop_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCgo_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>64</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>64</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCfovea_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>CDlattan_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>112</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>112</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>112</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>112</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>CDindlatburst_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>CDdirlatburst_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>FEFsac_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize, CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>SNCdop_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCgo_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>232</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>232</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>216</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>216</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCfovea_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>288</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>304</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>304</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>288</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>288</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>CDlattan_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>344</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>344</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>360</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>376</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>376</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>360</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>360</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>CDindlatburst_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>384</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>396</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>408</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>396</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>384</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>368</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>384</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>CDdirlatburst_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>392</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>404</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>416</x>
+						<y>256</y>
+					</corner>
+					<corner>
+						<x>404</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>392</x>
+						<y>272</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>376</x>
+						<y>256</y>
+					</min>
+					<max>
+						<x>392</x>
+						<y>256</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment>Dopamine is modelled as an inhibitory effect on the indirect
+pathway projecting through GPe and STN and as an excitatory
+effect on the direct pathway projecting to GPi/SNr.
+
+Assume that the effect of dopamine on the projection neurons 
+in the caudate is to manipulate the time constant of the neurons.  
+More dopamine shortens the time constant of the neurons and 
+less dopamine increases the time constant.</comment>
+		<methods>public void initRun () 
+{
+	CDindlatburst_out=0;
+	CDdirlatburst_out=0;
+
+	CorticalSlowDown = 1.;
+	basecdlatbursttm = 0.01;
+	cdlatbursttm = basecdlatbursttm * CorticalSlowDown;
+	CDlatfefsacK = 0.85;
+	CDlattanK = 2;
+	CDlatsncK = 1;
+	CDlatpfcK = 0.25;
+	CDlatpfcgoK = 0.25;
+	CDlbsigma1 = 0;
+	CDlbsigma2 = 60; // 90; //99/8/2 aa ???
+	CDlbsigma3 = 0;
+	CDlbsigma4 = 60;
+}
+
+public void simRun () 
+{
+	cdindlatburst = nslDiff (cdindlatburst,cdlatbursttm, 
+		- cdindlatburst + (CDlatfefsacK * FEFsac_in)
+		- (CDlattanK * CDlattan_in)
+		- (CDlatsncK * SNCdop_in)
+		+ (CDlatpfcK * PFCfovea_in));
+	CDindlatburst_out = Nsl2Sigmoid.eval(cdindlatburst,CDlbsigma1, CDlbsigma2, CDlbsigma3, CDlbsigma4);
+
+	cddirlatburst = nslDiff (cddirlatburst,cdlatbursttm, 
+		- cddirlatburst + (CDlatfefsacK * FEFsac_in)
+		+ (CDlatpfcgoK * PFCgo_in)
+		- (CDlattanK * CDlattan_in)
+		+ (CDlatsncK * SNCdop_in));
+
+	CDdirlatburst_out = Nsl2Sigmoid.eval(cddirlatburst, CDlbsigma1, CDlbsigma2, CDlbsigma3, CDlbsigma4);
+}
+
+
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

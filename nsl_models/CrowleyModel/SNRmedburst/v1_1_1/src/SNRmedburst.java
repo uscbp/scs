@@ -1,0 +1,187 @@
+/** 
+ SNRmedburst class
+ Represents the Substantia Nigra pars Reticulata Burst Cells Layer
+ @see     SNRmedburst
+ @version 0.1 96/11/19
+ @author  Michael Crowley
+ -var private CDdirmedburst_in - input coming from 
+ CDmedburst module (of type NslDouble2)<p>
+ -var private STNmedburst_in - input coming from 
+ STNmedburst module (of type NslDouble2)<p>
+ -var private SNRmedburst_out - output going to 
+ Thal module (of type NslDouble2)<p>
+*/
+package CrowleyModel.SNRmedburst.v1_1_1.src;
+
+/*********************************/
+/*                               */
+/*   Importing all Nsl classes   */
+/*                               */
+/*********************************/
+
+import nslj.src.system.*;
+import nslj.src.cmd.*;
+import nslj.src.lang.*;
+import nslj.src.math.*;
+import nslj.src.display.*;
+import nslj.src.display.j3d.*;
+
+/*********************************/
+
+public class SNRmedburst extends NslModule{
+
+//NSL Version: 3_0_n
+//Sif Version: 9
+//libNickName: CrowleyModel
+//moduleName:  SNRmedburst
+//versionName: 1_1_1
+//floatSubModules: true
+
+
+//variables 
+public  NslDinInt2 SNRMapCount_bulk; // 
+public  NslDinDouble3 SNRweights_bulk; // 
+public  NslDinInt3 SNRxmap_bulk; // 
+public  NslDinInt3 SNRymap_bulk; // 
+public  NslDinDouble2 STNmedburst_in; // 
+public  NslDinDouble2 CDdirmedburst_in; // 
+public  NslDoutDouble2 SNRmedburst_out; // 
+private double snrmedbursttm; // 
+private double SNRmedburstTONIC; // 
+private double SNRcdlbK; // 
+private double SNRstnlbK; // 
+private double SNRlbsigma1; // 
+private double SNRlbsigma2; // 
+private double SNRlbsigma3; // 
+private double SNRlbsigma4; // 
+private  NslDouble2 snrmedburst; // 
+private  NslDouble2 SNRcdinput; // 
+
+//methods 
+// This function is also called in the lib.h module by:
+  // TestConnections, TestFoveaMapping
+
+public void initRun () {
+    snrmedbursttm = 0.01;
+    SNRmedburstTONIC = 30;
+    SNRcdlbK = 1;
+    SNRstnlbK = 0.5;
+    SNRlbsigma1 = 15;
+    SNRlbsigma2 = 60;
+    SNRlbsigma3 = 0;
+    SNRlbsigma4 = 60;
+    snrmedburst.set(  30);
+    SNRmedburst_out.set(  Nsl2Sigmoid.eval(snrmedburst,SNRlbsigma1, SNRlbsigma2,
+                                           SNRlbsigma3, SNRlbsigma4));
+
+  }
+  public void simRun () {
+    int tempint;
+    /* <Q> SNRcdinput? */
+  // System.err.println("@@@@ SNRmedburst simRun entered @@@@");
+
+//System.out.println("SNRxmap "+new NslInt3(SNRxmap));
+
+    tempint = SumCDtoSNR (CDdirmedburst_in, SNRcdinput);
+//System.out.println("SNRweights:"+SNRweights_bulk);
+
+//    System.out.println("CD.max "+CDdirmedburst_in.max() + "\nSNR "+SNRcdinput);
+    snrmedburst.set(  system.nsldiff.eval (snrmedburst,snrmedbursttm, 
+                                    __tempSNRmedburst5.setReference(NslAdd.eval(__tempSNRmedburst5.get(), __tempSNRmedburst4.setReference(NslSub.eval(__tempSNRmedburst4.get(), __tempSNRmedburst3.setReference(NslAdd.eval(__tempSNRmedburst3.get(), __tempSNRmedburst0.setReference(NslSub.eval(__tempSNRmedburst0.get(), 0, snrmedburst)), SNRmedburstTONIC)), (__tempSNRmedburst1.setReference(NslElemMult.eval(__tempSNRmedburst1.get(), SNRcdlbK, SNRcdinput))))), (__tempSNRmedburst2.setReference(NslElemMult.eval(__tempSNRmedburst2.get(), SNRstnlbK, STNmedburst_in)))))));
+    SNRmedburst_out.set(  Nsl2Sigmoid.eval(snrmedburst,SNRlbsigma1, SNRlbsigma2,
+                                           SNRlbsigma3, SNRlbsigma4));
+ }
+
+
+public int SumCDtoSNR (NslDouble2 CD, NslDouble2 SNR) 
+  {
+  //  This function sums the activity in the medial CD circuit onto 
+  //  the medial SNR circuit through SNRweights, SNRxmap and SNRymap.
+
+    int i, j, k;
+    NslInt0 xmaploc= new  NslInt0("xmaploc",this), ymaploc= new  NslInt0("ymaploc",this);
+
+    //if (CD==null) System.err.println("CD null!!!!");
+    //if (SNR==null) System.err.println("SNR null!!!!");
+     // System.err.println("SNRmedburst.SumCDtoSNR: entered....");
+    SNR.set(  0);  // Ensure new mapping only
+     // System.err.println("SNRmedburst.SumCDtoSNR: A");
+     //System.err.println("SNRMapCount:"+SNRMapCount);
+    for (i = 0; i<CorticalArraySize ; i ++)
+      for (j = 0; j<CorticalArraySize ; j ++) {
+        for (k = 0; k<__tempSNRmedburst6.setReference(SNRMapCount_bulk.get(i, j)).get(); k ++) {
+    //System.err.println("SNRmedburst.SumCDtoSNR: loop: ("+i+","+j+","+k+")");
+          xmaploc.set(  __tempSNRmedburst7.setReference(SNRxmap_bulk.get(i, j, k)));
+          ymaploc.set(  __tempSNRmedburst8.setReference(SNRymap_bulk.get(i, j, k)));
+          SNR.set( i, j,   __tempSNRmedburst13.setReference(__tempSNRmedburst9.setReference(SNR.get(i, j)).get()+__tempSNRmedburst12.setReference(__tempSNRmedburst10.setReference(CD.get(xmaploc.get(), ymaploc.get())).get()*__tempSNRmedburst11.setReference(SNRweights_bulk.get(i, j, k)).get()).get()));
+        }
+      }
+    return 0;
+}
+public void makeConn(){
+}
+
+	/******************************************************/
+	/*                                                    */
+	/* Generated by nslc.src.NslCompiler. Do not edit these lines! */
+	/*                                                    */
+	/******************************************************/
+
+	/* Constructor and related methods */
+	/* makeinst() declared variables */
+
+	/* Formal parameters */
+	int CorticalArraySize;
+	int StriatalArraySize;
+
+	/* Temporary variables */
+		NslDouble2 __tempSNRmedburst0 = new NslDouble2(1, 1);
+		NslDouble2 __tempSNRmedburst1 = new NslDouble2(1, 1);
+		NslDouble2 __tempSNRmedburst2 = new NslDouble2(1, 1);
+		NslDouble2 __tempSNRmedburst3 = new NslDouble2(1, 1);
+		NslDouble2 __tempSNRmedburst4 = new NslDouble2(1, 1);
+		NslDouble2 __tempSNRmedburst5 = new NslDouble2(1, 1);
+		NslInt0 __tempSNRmedburst6 = new NslInt0();
+		NslInt0 __tempSNRmedburst7 = new NslInt0();
+		NslInt0 __tempSNRmedburst8 = new NslInt0();
+		NslDouble0 __tempSNRmedburst9 = new NslDouble0();
+		NslDouble0 __tempSNRmedburst10 = new NslDouble0();
+		NslDouble0 __tempSNRmedburst11 = new NslDouble0();
+		NslDouble0 __tempSNRmedburst12 = new NslDouble0();
+		NslDouble0 __tempSNRmedburst13 = new NslDouble0();
+
+	/* GENERIC CONSTRUCTOR: */
+	public SNRmedburst(String nslName, NslModule nslParent, int CorticalArraySize, int StriatalArraySize)
+{
+		super(nslName, nslParent);
+		this.CorticalArraySize=CorticalArraySize;
+		this.StriatalArraySize=StriatalArraySize;
+		initSys();
+		makeInstSNRmedburst(nslName, nslParent, CorticalArraySize, StriatalArraySize);
+	}
+
+	public void makeInstSNRmedburst(String nslName, NslModule nslParent, int CorticalArraySize, int StriatalArraySize)
+{ 
+		Object[] nslArgs=new Object[]{CorticalArraySize, StriatalArraySize};
+		callFromConstructorTop(nslArgs);
+		SNRMapCount_bulk = new NslDinInt2("SNRMapCount_bulk", this, CorticalArraySize, CorticalArraySize);
+		SNRweights_bulk = new NslDinDouble3("SNRweights_bulk", this, CorticalArraySize, CorticalArraySize, CorticalArraySize);
+		SNRxmap_bulk = new NslDinInt3("SNRxmap_bulk", this, CorticalArraySize, CorticalArraySize, CorticalArraySize);
+		SNRymap_bulk = new NslDinInt3("SNRymap_bulk", this, CorticalArraySize, CorticalArraySize, CorticalArraySize);
+		STNmedburst_in = new NslDinDouble2("STNmedburst_in", this, CorticalArraySize, CorticalArraySize);
+		CDdirmedburst_in = new NslDinDouble2("CDdirmedburst_in", this, StriatalArraySize, StriatalArraySize);
+		SNRmedburst_out = new NslDoutDouble2("SNRmedburst_out", this, CorticalArraySize, CorticalArraySize);
+		snrmedburst = new NslDouble2("snrmedburst", this, CorticalArraySize, CorticalArraySize);
+		SNRcdinput = new NslDouble2("SNRcdinput", this, 9, 9);
+		callFromConstructorBottom();
+	}
+
+	/******************************************************/
+	/*                                                    */
+	/* End of automatic declaration statements.           */
+	/*                                                    */
+	/******************************************************/
+
+
+}//end SNRmedburst
+

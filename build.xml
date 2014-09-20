@@ -1,0 +1,61 @@
+<project name="SCS" default="dist" basedir=".">
+    <property name="src" location="src"/>
+    <property name="build" location="classes"/>
+    <property name="lib" location="lib"/>
+    <property name="bin" location="bin"/>
+    <property name="dist" location="dist"/>
+
+    <taskdef name="izpack" classpath="${lib}/ext/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask"/>
+
+    <target name="init">
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="${src}" destdir="${build}">
+            <classpath path="${lib}/nslj.jar"/>
+            <classpath path="${lib}/nslc.jar"/>
+            <classpath path="${lib}/ext"/>
+            <classpath path="${lib}/ext/epsGraphics.jar"/>
+            <classpath path="${lib}/ext/j3dcore.jar"/>
+            <classpath path="${lib}/ext/j3dutils.jar"/>
+            <classpath path="${lib}/ext/jacl.jar"/>
+            <classpath path="${lib}/ext/jmatio.jar"/>
+            <classpath path="${lib}/ext/jmatlink.jar"/>
+            <classpath path="${lib}/ext/odejava-jni.jar"/>
+            <classpath path="${lib}/ext/odejava.jar"/>
+            <classpath path="${lib}/ext/openmali.jar"/>
+            <classpath path="${lib}/ext/vecmath.jar"/>
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile">
+        <jar basedir="${build}" jarfile="${bin}/scs.jar">
+            <include name="scs"/>
+            <include name="scs/*"/>
+            <include name="scs/graphics/*"/>
+            <include name="scs/tool/*"/>
+            <include name="scs/tool/editor/*"/>
+            <include name="scs/ui/*"/>
+            <include name="scs/util/*"/>
+	    
+	    <include name="org"/>
+            <include name="org/*"/>
+            <include name="org/syntax/*"/>
+            <include name="org/syntax/jedit/*"/>
+            <include name="org/syntax/jedit/tokenmarker/*"/>
+        </jar>
+        <izpack input="${dist}/installation_i386.xml" output="${dist}/install_i386.jar" installerType="standard" basedir="${dist}"
+                izPackDir="${dist}/"/>
+        <izpack input="${dist}/installation_amd64.xml" output="${dist}/install_amd64.jar" installerType="standard" basedir="${dist}"
+                izPackDir="${dist}/"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}/scs"/>
+    </target>
+
+    <target name="recompile" depends="clean,compile"/>
+
+
+</project>

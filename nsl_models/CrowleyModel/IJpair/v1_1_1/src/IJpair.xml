@@ -1,0 +1,112 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>IJpair</name>
+	<version>1_1_1</version>
+	<type>NslClass</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments></arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="BasicVariable">
+			<name>i</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>j</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void callFromConstructorBottom(){
+    i = 0;
+    j = 0;
+  }
+
+  public void init() {
+    i = 0;
+    j = 0;
+  }
+
+
+  public int MaxIJ( NslDouble2 inmat ) {
+    // Returns the i,j location of the maximum value element in the 
+    // matrix passed as input
+
+    // 99/8/2 aa: this would be better as nslMaxElem
+    // pass out an array of values
+
+    int    ic, jc;
+    int    imax, jmax;
+    int    foundmax;
+    double max;
+
+    foundmax = 0;
+    max = -0.5;
+
+    imax = inmat.getSize1();
+    jmax = inmat.getSize2();
+
+    for ( ic=0; ic&lt;imax; ic++ ){
+      for ( jc=0; jc&lt;jmax; jc++ ){
+	if ( inmat[ic][jc] &gt; max ) {
+	  max = (double)inmat[ic][jc];
+	  foundmax = 1;
+	  i = ic; 
+	  j = jc;
+	}
+      }
+    }
+    if ( foundmax != 0)
+      return 0;     //No positive maximum value
+
+    return 1;
+  }
+  
+  public int getI(){
+    return i;
+  }
+  public int getJ(){
+    return j;
+  }
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

@@ -1,0 +1,94 @@
+# SCCS  %W% - %G% - %U% 
+
+# Copyright (c) 2000 University of Southern California Brain Project 
+# email nsl@java.usc.edu 
+
+#
+# Hopfield Network
+#
+
+set A {}
+set B {}
+set C {}
+set D {}
+
+proc memorize { x } {
+
+	puts "Memorizing $x"
+       	
+    nsl set hopfieldModel.net.input $x
+	nsl train
+}
+
+proc test { x } {
+
+	nsl set hopfieldModel.net.input $x
+	nsl run
+}
+
+proc initData {} {
+
+	global A B C D
+
+	set A { 
+		{ -1 -1  1  1 -1 -1 }
+	        { -1  1 -1 -1  1 -1 } 
+		{ -1  1  1  1  1 -1 } 
+		{ -1  1  1  1  1 -1 }
+		{ -1  1 -1 -1  1 -1 }
+		{ -1  1 -1 -1  1 -1 }
+	}
+ 
+	set B { 
+		{ 1  1 -1 -1 -1 -1 }
+		{ 1  1 -1 -1 -1 -1 } 
+		{ 1  1  1  1 -1 -1 }
+		{ 1  1 -1 -1  1 -1 }  
+		{ 1  1 -1 -1  1 -1 } 
+		{ 1  1  1  1 -1 -1 } 
+	}
+ 
+	set C {
+		{ -1 -1  1  1  1 -1 } 
+		{ -1  1 -1 -1 -1  1 }
+		{  1 -1 -1 -1 -1 -1 }
+		{  1 -1 -1 -1 -1 -1 }
+		{ -1  1 -1 -1 -1  1 }
+ 		{ -1 -1  1  1  1 -1 }
+	}
+ 
+	set D {
+		{ -1 -1 -1 -1  1  1 }
+		{ -1 -1 -1 -1  1  1 } 
+		{ -1  1  1  1  1  1 } 
+		{  1 -1 -1 -1  1  1 }
+		{  1 -1 -1 -1  1  1 } 
+		{ -1  1  1  1  1  1 }
+	} 
+}
+
+proc trainNetwork {} {
+	global A B C D
+
+	memorize $A
+	memorize $B
+	memorize $C
+	memorize $D
+}
+
+
+proc NslMain {} {
+	
+	global A B C D
+	
+	puts "Initializing"
+	initData
+
+	puts "Training"
+	trainNetwork
+
+	puts "Testing"
+	test $A
+} 
+
+NslMain

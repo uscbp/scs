@@ -1,0 +1,233 @@
+<module>
+	<library>DomineyModel</library>
+	<name>Erasure2</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>erasure2</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>halfStdsz</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>oneThirdStdsz</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>twoThirdsStdszMin1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>Erasure2</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>56</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>88</x>
+				<y>56</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>erasure2</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>88</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>88</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>erasure2</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>216</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>228</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>240</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>228</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() 
+{	
+	halfStdsz=(int)stdsz/2;  // if stdsz=9, then this is 4
+	oneThirdStdsz=(int)stdsz/3;  //if stdsz=9, then this is 3
+	twoThirdsStdszMin1=oneThirdStdsz+ oneThirdStdsz-1; //if, then 5
+}
+
+public void initRun() 
+{
+	// the following draws a square outlining the fovea
+	// with 1 everywhere except the outline which is 0.5
+	erasure2=1;       // set everything to 1 then set some to 0.5                    
+	erasure2[oneThirdStdsz][oneThirdStdsz] = .5;
+	erasure2[oneThirdStdsz][halfStdsz] = 0.5; 
+	erasure2[oneThirdStdsz][twoThirdsStdszMin1] = 0.5;
+
+	erasure2[halfStdsz][oneThirdStdsz] = 0.5;
+	erasure2[halfStdsz][halfStdsz] = 0.5; 
+	erasure2[halfStdsz][twoThirdsStdszMin1] = 0.5;
+
+	erasure2[twoThirdsStdszMin1][oneThirdStdsz] = 0.5;
+	erasure2[twoThirdsStdszMin1][halfStdsz] = 0.5; 
+	erasure2[twoThirdsStdszMin1][twoThirdsStdszMin1] = 0.5;
+
+	if (system.debug&gt;1) 
+	{
+		nslPrintln("Erasure2:initRun: erasure2");
+		nslPrintln(erasure2);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

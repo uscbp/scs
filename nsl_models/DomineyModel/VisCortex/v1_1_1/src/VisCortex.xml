@@ -1,0 +1,417 @@
+<module>
+	<library>DomineyModel</library>
+	<name>VisCortex</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>retina</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>posteriorParietal</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>posteriorParietal_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrMT_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV4_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV2_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV1_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrLGN_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrMT</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrV1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>arrLGN</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>VisCortex</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>152</x>
+				<y>32</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>32</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>retina</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>posteriorParietal</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>128</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>128</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>152</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>retina</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>176</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>188</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>200</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>216</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>posteriorParietal</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>288</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>300</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>312</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>300</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>288</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>272</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>288</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initRun() 
+{
+	posteriorParietal=0;
+	arrMT=0;
+	arrV4=0;
+	arrV2=0;
+	arrV1=0;
+	arrLGN=0;
+
+	posteriorParietal_tm= 0.006;  
+	arrMT_tm= 0.006;  
+	arrV4_tm= 0.006;
+	arrV2_tm= 0.006;  
+	arrV1_tm= 0.006;  
+	arrLGN_tm= 0.006;  
+}
+
+public void simRun() 
+{
+	if (system.debug&gt;=16) 
+	{
+		nslPrintln("debug: VisCortex: retina "+retina);
+	}
+
+	posteriorParietal=nslDiff(posteriorParietal,posteriorParietal_tm,- posteriorParietal + arrMT);
+	arrMT=nslDiff(arrMT,arrMT_tm, - arrMT + arrV4);
+	arrV4=nslDiff(arrV4,arrV4_tm, - arrV4 + arrV2);
+	arrV2=nslDiff(arrV2,arrV2_tm, - arrV2 + arrV1);
+	arrV1=nslDiff(arrV1,arrV1_tm, - arrV1 + arrLGN);
+	arrLGN=nslDiff(arrLGN,arrLGN_tm, - arrLGN + retina);
+
+	if (system.debug&gt;=16) 
+	{
+		nslPrintln("VisCortex: simRun: posteriorParietal ");
+		nslPrintln(posteriorParietal);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

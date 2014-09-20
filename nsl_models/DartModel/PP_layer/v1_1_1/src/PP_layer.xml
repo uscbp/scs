@@ -1,0 +1,339 @@
+<module>
+	<library>DartModel</library>
+	<name>PP_layer</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments></arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>s_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDoutDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment>Strategy: [0:1] over/under</comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>pp_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>10,10</params>
+			<inits></inits>
+			<comment>PP population coding</comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sx2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>12.25</inits>
+			<comment>3.5*3.5</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sy2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>9</inits>
+			<comment>3*3</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>a_out</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment>Aim direction [-30:30]</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pp_noise</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pp_sep</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DartModel</library>
+		<module>PP_layer</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>88</x>
+				<y>80</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>64</x>
+				<y>80</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>64</x>
+						<y>80</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>64</x>
+						<y>80</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble0">
+				<name>s_out</name>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>64</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>64</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>pp_out</name>
+				<parameters>10,10</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>64</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>64</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>s_out</name>
+				<type>NslDoutDouble0</type>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>232</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>104</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>88</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>pp_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>10,10</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>232</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule()
+{
+	pp_noise = (NslDouble0)nslGetValue("dartModel.pp_noise");
+	pp_sep   = (NslDouble0)nslGetValue("dartModel.pp_sep");
+}
+ 
+public void simTrain() 
+{
+	simRun();
+}
+ 
+public void simRun()
+{
+	int i,j;
+	NslDouble0 mx(), my();
+	NslDouble0 dx(), dy();
+
+	s_out = (NslDouble0)nslGetValue("dartModel.s_out");
+	a_out = (NslDouble0)nslGetValue("dartModel.d_out");
+     
+	my = 4.5 + nslStep(s_out,.5,-1,1)*pp_sep/2.; // throw = over/under
+	mx = 4.5 + 4.5*a_out/30.;
+     
+	for(i=0;i&lt;10;i++)
+	{
+		dx = mx - i;
+		for(j=0;j&lt;10;j++)
+		{
+			dy = my - j;
+			pp_out[i][j] = pp_noise * nslRandom() + (1.-pp_noise) * nslExp(-1.*(dx*dx/sx2 + dy*dy/sy2));
+		}
+	}
+ }
+
+
+</methods>
+	</nslm>
+</module>

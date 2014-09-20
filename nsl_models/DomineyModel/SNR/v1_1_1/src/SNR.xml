@@ -1,0 +1,614 @@
+<module>
+	<library>DomineyModel</library>
+	<name>SNR</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>cdmem</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>cdsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>snrmem</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>snrsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmemPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsacPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmemPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsacPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmem_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmem_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmem_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmem_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsac_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsac_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsac_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsac_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmemPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrsacPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>SNR</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>136</x>
+				<y>80</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>80</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>80</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>80</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>cdmem</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>cdsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>snrmem</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>112</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>136</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>112</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>136</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>snrsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>112</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>136</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>112</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>136</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>cdmem</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>200</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>224</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>224</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>240</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>cdsac</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>200</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>224</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>176</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>224</x>
+						<y>160</y>
+					</min>
+					<max>
+						<x>240</x>
+						<y>160</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>snrmem</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>328</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>328</x>
+						<y>104</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>312</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>328</x>
+						<y>88</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>snrsac</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>336</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>348</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>360</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>348</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>336</x>
+						<y>176</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>320</x>
+						<y>160</y>
+					</min>
+					<max>
+						<x>336</x>
+						<y>160</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initRun() 
+{
+	snrmem=100;
+	snrsac=100;
+        snrmemPot=0;
+        snrsacPot=0;
+
+	snrmemPot_tm= .04 ;
+	snrsacPot_tm=  .02;
+	snrmemPot_k1= 1.5 ;
+	snrsacPot_k1=  1;	
+	snrmem_x1=0;
+	snrmem_x2=  50;
+	snrmem_y1= 100 ;
+	snrmem_y2=0  ;
+	snrsac_x1=  0;
+	snrsac_x2= 50 ;
+	snrsac_y1=  100;
+	snrsac_y2= 0 ;	
+}
+
+public void simRun() 
+{
+	snrsacPot=nslDiff(snrsacPot,snrsacPot_tm,- snrsacPot + snrsacPot_k1*cdsac);
+	snrmemPot=nslDiff(snrmemPot,snrmemPot_tm, - snrmemPot + snrmemPot_k1*cdmem);
+	snrsac = nslSigmoid(snrsacPot,snrsac_x1,snrsac_x2,snrsac_y1,snrsac_y2);
+	snrmem = nslSigmoid(snrmemPot,snrmem_x1,snrmem_x2,snrmem_y1,snrmem_y2);
+
+	if (system.debug&gt;=23) 
+	{
+		nslPrintln("SNR: snrsac");
+		nslPrintln(snrsac);
+		nslPrintln("SNR: snrmem");
+		nslPrintln(snrmem);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

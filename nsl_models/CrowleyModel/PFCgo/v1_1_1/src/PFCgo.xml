@@ -1,0 +1,560 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>PFCgo</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int array_size</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>LIPmem_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCseq_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCfovea_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>PFCgo_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcgo</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcgotm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>basepfcgotm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CorticalSlowdown</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCgosigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCgosigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCgosigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCgosigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCseqK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0.9</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFClipmem</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0.35</inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>PFCgo</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>88</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>LIPmem_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCseq_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCfovea_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>PFCgo_out</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>88</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>88</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>LIPmem_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>264</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>288</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>264</x>
+						<y>56</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>288</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>304</x>
+						<y>40</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCseq_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>264</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>288</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>264</x>
+						<y>120</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>288</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>304</x>
+						<y>104</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCfovea_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>264</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>288</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>264</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>288</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>304</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>PFCgo_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>400</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>412</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>424</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>412</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>400</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>384</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>400</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initRun(){
+//    PFClipmem      =  0.35; 
+//    PFCseqK        =  0.9;
+
+    pfcgo = 0.0;
+    PFCgo_out = 0.0;
+    basepfcgotm = 0.008;
+    CorticalSlowdown = 1.0;
+    pfcgotm = basepfcgotm * CorticalSlowdown;
+    PFCgosigma1 = 20.0;
+    PFCgosigma2 = 60.0;
+    PFCgosigma3 = 0.0;
+    PFCgosigma4 = 60.0;
+}
+
+public void simRun(){
+
+  // System.err.println("@@@@ PFCgo simRun entered @@@@");
+    /* &lt;Q&gt; PFClipmem PFCseqK */
+    pfcgo = nslDiff(pfcgo,pfcgotm,
+		       -pfcgo
+		       + (PFClipmem * LIPmem_in)
+		       + (PFCseqK * PFCseq_in)
+		       - PFCfovea_in);
+    PFCgo_out = Nsl2Sigmoid.eval(pfcgo,PFCgosigma1, PFCgosigma2,
+				  PFCgosigma3, PFCgosigma4);
+	// 96/12/20 aa
+	//System.out.println("PFCgo_out: " + PFCgo_out);
+  }
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

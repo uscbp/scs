@@ -1,0 +1,173 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>LC</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int array_size</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>LimbicCortex_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>LC</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>72</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>72</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>72</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>LimbicCortex_out</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>72</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>72</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>LimbicCortex_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>16</x>
+						<y>0</y>
+					</corner>
+					<corner>
+						<x>28</x>
+						<y>0</y>
+					</corner>
+					<corner>
+						<x>40</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>28</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>16</x>
+						<y>32</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>16</x>
+						<y>16</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment> Here is the class representing the LimbicCortex (LC) input module.
+ In old NSL it is an input array, but since NSLJ does not have
+ input arrays yet we make them static arrays.</comment>
+		<methods>public void initRun(){
+    LimbicCortex_out=30;
+  }
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

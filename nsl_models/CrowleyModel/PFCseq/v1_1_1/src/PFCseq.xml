@@ -1,0 +1,719 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>PFCseq</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int array_size</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>LIPvis_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCmem_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>PFCfovea_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>pfcseq_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>PFCseq_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcsel</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcseq</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>FOVEAX</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>FOVEAY</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="SubModule">
+			<name>tij</name>
+			<access>public</access>
+			<scope>local</scope>
+			<type>IJpair</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<library>CrowleyModel</library>
+			<version>v1_1_1</version>
+			<getCurrentVersion>true</getCurrentVersion>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcseqtm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcselK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcfoveaK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Refractory</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SEQmax</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>seqmax</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>PFCseq</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>LIPvis_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCmem_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>PFCfovea_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>pfcseq_out</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>PFCseq_out</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>LIPvis_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>152</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>152</x>
+						<y>72</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>176</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>192</x>
+						<y>56</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCmem_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>152</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>152</x>
+						<y>136</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>176</x>
+						<y>120</y>
+					</min>
+					<max>
+						<x>192</x>
+						<y>120</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>PFCfovea_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>152</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>152</x>
+						<y>208</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>176</x>
+						<y>192</y>
+					</min>
+					<max>
+						<x>192</x>
+						<y>192</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>pfcseq_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>312</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>324</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>336</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>324</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>312</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>296</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>312</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>PFCseq_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>320</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>332</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>344</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>332</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>320</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>304</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>320</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() {
+     tij.init(); //initialize user class
+     FOVEAX=(NslInt0)nslGetValue("crowleyModel.FOVEAX");
+     FOVEAY=(NslInt0)nslGetValue("crowleyModel.FOVEAY");
+}
+  
+public void initRun(){
+    pfcseq_out = 0.0;
+    PFCseq_out = 0.0;
+
+    SEQmax=0;
+    seqmax=0;
+    
+    pfcseqtm = 0.008;
+    pfcselK = 1.5;
+    pfcfoveaK = 2.0;
+    Refractory = 0.025 / nslGetRunDelta();
+}
+public void simRun(){
+    int tempint;
+
+  /// System.err.println("@@@@ PFCseq simRun entered @@@@");
+
+    pfcseq_out=SetTargetSequence(LIPvis_in, pfcseq_out);
+
+    SEQmax=nslMaxValue(PFCseq_out);
+    seqmax=nslMaxValue(pfcseq_out);
+
+//    if ((SEQmax &lt; Refractory) &amp;&amp; (seqmax &gt; 0.0)){
+    if ((nslMaxValue(PFCseq_out) &lt; Refractory) &amp;&amp; (nslMaxValue(pfcseq_out) &gt; 0.0)){
+      tempint = tij.MaxIJ(PFCmem_in);
+      pfcsel = 0.0;
+      pfcsel[tij.getI()][tij.getJ()] = PFCmem_in[tij.getI()][tij.getJ()];
+    }
+
+    PFCseq_out = nslDiff(PFCseq_out,pfcseqtm,
+				 -PFCseq_out
+				 + (pfcselK * pfcsel)
+				 - (pfcfoveaK * PFCfovea_in));
+
+    pfcseq_out = pfcseq_out * 0.95;
+    //pfcseq = pfcseq * 0.95;
+    pfcsel = pfcsel * 0.95;
+}
+
+  // private methods
+private NslDouble2 SetTargetSequence(NslDouble2 inmat, NslDouble2 outmat) {
+    // This function set the sequence order for
+    // sequentially appearing targets.
+    int i, j, savei, savej, imax, jmax;
+    int newtarget;
+    /*
+    imax = (int)inmat.get_imax();
+    jmax = (int)inmat.get_jmax();
+    */
+
+    imax = (int)inmat.getSize1();
+    jmax = (int)inmat.getSize2();
+
+    savei = -1;
+    savej = -1;
+
+    newtarget = 0;             //Set to 1 when a saccade target first appears
+
+    for ( i=0; i&lt;imax; i++ ){
+      for ( j=0; j&lt;jmax; j++ ){
+	if ( ( inmat[i][j] &gt; 0.5 )  &amp;&amp; ( outmat[i][j] == 0 ) ){
+	  if ( ( i!=FOVEAX ) || ( j!=FOVEAY ) ){
+
+	    // Found a new target that is not on the fovea.  My assumption
+	    // is that there are no saccadic fovea projections from cortex.
+	    // Save element location so value can be set to 1 after
+	    // all other target memories have been incremented
+
+	    savei = i;
+	    savej = j;
+	  }
+	}
+      }
+    }
+    if ( ( savei &gt;= 0 ) &amp;&amp; ( savej &gt;= 0 ) ){
+      // New target exists.  Increment any existing target memories.
+
+      for ( i=0; i&lt;imax; i++ ){
+	for ( j=0; j&lt;jmax; j++ ){
+	  if ( outmat[i][j] &gt; 0 ){
+	    outmat[i][j] = outmat[i][j] + 1;
+	  }
+	}
+      }
+      outmat[savei][savej] = 1;    //Set new target memory to 1
+
+    }
+    return outmat;
+}
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

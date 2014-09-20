@@ -1,0 +1,5 @@
+Main-Class: scs.ui.SchEditorFrame
+Name: SchEditorFrame.class
+Implementation-Title: "Schematic Editor System"
+Implementation-Version: "NSL3_0_n"
+Implementation-Vendor: "USC Human Brain Project"

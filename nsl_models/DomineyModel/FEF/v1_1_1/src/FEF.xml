@@ -1,0 +1,1120 @@
+<module>
+	<library>DomineyModel</library>
+	<name>FEF</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>ppqv</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>thmem</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>fon</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>stimulation</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>fefvis</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>fefmem</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>fefsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmemPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvisPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsacPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmemPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmemPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmemPot_k4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsacPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsacPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsacPot_k3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvisPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvisPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvis_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvis_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvis_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvis_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmem_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmem_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmem_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmem_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsac_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsac_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsac_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsac_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsac_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefvisPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefmemPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsacPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fefsactmp</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>protocolNum</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>center</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>FEF</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>104</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>104</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>104</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>104</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>ppqv</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>thmem</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>fon</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>64</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>64</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>stimulation</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>fefvis</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>fefmem</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>fefsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>ppqv</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>136</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>160</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>104</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>160</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>176</x>
+						<y>88</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>thmem</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>136</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>160</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>176</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>160</x>
+						<y>160</y>
+					</min>
+					<max>
+						<x>176</x>
+						<y>160</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>fon</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>136</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>160</x>
+						<y>224</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>240</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>160</x>
+						<y>224</y>
+					</min>
+					<max>
+						<x>176</x>
+						<y>224</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>stimulation</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>136</x>
+						<y>280</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>280</y>
+					</corner>
+					<corner>
+						<x>160</x>
+						<y>296</y>
+					</corner>
+					<corner>
+						<x>148</x>
+						<y>312</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>312</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>160</x>
+						<y>296</y>
+					</min>
+					<max>
+						<x>176</x>
+						<y>296</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>fefvis</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>296</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>320</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>296</x>
+						<y>104</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>280</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>296</x>
+						<y>88</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>fefmem</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>296</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>320</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>296</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>280</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>296</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>fefsac</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>296</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>320</x>
+						<y>232</y>
+					</corner>
+					<corner>
+						<x>308</x>
+						<y>248</y>
+					</corner>
+					<corner>
+						<x>296</x>
+						<y>248</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>280</x>
+						<y>232</y>
+					</min>
+					<max>
+						<x>296</x>
+						<y>232</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() 
+{	
+	fefsac.nslSetAccess('W');
+	fefmemPot_k2.nslSetAccess('W');
+}
+
+public void initRun() 
+{
+	center = (int) stdsz/2;
+
+	protocolNum = (NslInt0)nslGetValue("domineyModel.protocolNum");
+
+	fefvis=0;
+	fefmem=0;
+	fefsac=0;
+	fefvisPot=0;
+	fefmemPot=0;
+	fefsacPot=0;
+	fefsactmp=0;
+
+	fefmemPot_tm= .008 ;
+	fefvisPot_tm= .006 ; //xxx???AA
+	fefsacPot_tm=  .008;
+	fefmemPot_k1= 0.2 ;
+	fefmemPot_k2= 0 ;
+	//98/12/10 aa: not in 2.1.7  :doing a memory protocolNum
+	if ((protocolNum==2)||(protocolNum==3)||(protocolNum==8)||(protocolNum==15)) 
+	{	
+		fefmemPot_k2= 1 ;  //was lost in NSL2.1.7 nsl file
+	}
+	fefmemPot_k4= 8 ;
+
+	fefsacPot_k1=  1;
+	fefsacPot_k2=  2;
+	fefsacPot_k3=  3;
+	fefvisPot_k1=  0;
+	fefvisPot_k2=  1;
+	fefvis_x1=  0;
+	fefvis_x2= 90 ;
+	fefvis_y1=  0;
+	fefvis_y2=90  ;
+	fefmem_x1= 0 ;
+	fefmem_x2=  90;
+	fefmem_y1= 0 ;
+	fefmem_y2=90  ;
+	fefsac_x1=  80; //AA: in 2.1.7 but whynot 0?
+	fefsac_x2= 90 ;
+	fefsac_y1=  0;
+	fefsac_y2= 90 ;
+	
+ 	//XX 98/11/18 aa: fefsac_k1 depeneds on protocolNum 
+	// fefsac_k1*stimulation:
+	// simple,double = 0
+	// collision  = 4.8 why?
+	// compensatoryI = 2.5 why?  Published doc says: 1.58
+	// compensatoryII = nothing stated. Published doc says: 1.58
+	// If we look at the SC equations: supcol_k3 then this
+	// fefsac_k1 for compII should be stronger than for compI case.
+	// For this reason we will set it to 3.5
+	fefsac_k1=0;  // if stimulation is not used on FEF in most protocolNums
+	// if stimulation used
+	if ((protocolNum==11)||( protocolNum==13)) 
+	{
+		fefsac_k1=2.5;  // 
+		// Thesis says fefsac_k1= 1.58 at 175 hz for 40 msec
+		// for compensatory protocolNums but in the potential equation
+	}
+	if (protocolNum==12) 
+	{
+		fefsac_k1=3.5;
+	}
+}
+
+public void simRun() 
+{
+	fefvisPot=nslDiff(fefvisPot,fefvisPot_tm, (- fefvisPot + ppqv));
+	fefmemPot=nslDiff(fefmemPot,fefmemPot_tm,( - fefmemPot + fefmemPot_k4*thmem + fefmemPot_k2*fefvis -fefmemPot_k1*fon));
+	fefsacPot=nslDiff(fefsacPot,fefsacPot_tm,( - fefsacPot +fefsacPot_k1*fefvis +fefsacPot_k2*fefmem - fefsacPot_k3*fon));
+	// aa: note: the published doc addes the fefsac_k1*stimulation 
+	// in this equations (fefsacPot) instead of the fefsac equation below.
+
+	fefsacPot[center][center] = 0;
+	fefvis = nslSigmoid(fefvisPot,fefvis_x1,fefvis_x2,fefvis_y1,fefvis_y2);
+
+	fefmem = nslSigmoid(fefmemPot,fefmem_x1,fefmem_x2,fefmem_y1,fefmem_y2);
+
+	fefsactmp = nslSigmoid(fefsacPot,fefsac_x1,fefsac_x2,fefsac_y1,fefsac_y2); 
+	fefsac = fefsactmp + (fefsac_k1*stimulation);
+
+	//98/12/8 aa: from the 92 paper, set fefsac to 0 in equation 13 for
+	// lesioning of fef
+	//lesion fef
+	if ((protocolNum==7)||(protocolNum==14)) 
+	{
+		fefsac=0;  
+	}
+
+	if (system.debug&gt;=18) 
+	{
+		nslPrintln("simRun: FEF: fefsac:");
+		nslPrintln(fefsac);
+		nslPrintln("simRun: FEF: fefmem:");
+		nslPrintln(fefmem);
+		nslPrintln("simRun: FEF: fefvis:");
+		nslPrintln(fefvis);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

@@ -1,0 +1,375 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>GPEmedburst</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int CorticalArraySize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>CDindmedburst_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>GPEmedburst_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gpemedbursttm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPEmedburstTONIC</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPEmedburstK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPElbsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPElbsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPElbsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>GPElbsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gpemedburst</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>GPEmedburst</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>136</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>GPEmedburst_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>112</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>136</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>112</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>136</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>CDindmedburst_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>CDindmedburst_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>232</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>184</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>200</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>256</x>
+						<y>184</y>
+					</min>
+					<max>
+						<x>272</x>
+						<y>184</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>GPEmedburst_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>400</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>412</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>424</x>
+						<y>184</y>
+					</corner>
+					<corner>
+						<x>412</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>400</x>
+						<y>200</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>384</x>
+						<y>184</y>
+					</min>
+					<max>
+						<x>400</x>
+						<y>184</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment> GPEmedburst class
+ Represents the Globus Pallidus External Burst Cells Layer
+ see     GPEmedburst
+ version 0.1 96-11-19
+ author  Michael Crowley
+ -var private CDindmedburst_in - input coming from CDmedburst module (of type NslDouble2)
+ -var private GPEmedburst_out - output going to STNmedburst module (of type NslDouble2)</comment>
+		<methods>public void initRun () 
+{
+	GPEmedburst_out=0;
+	gpemedbursttm = 0.01;
+	GPEmedburstTONIC = 30;
+	GPEmedburstK = 2;
+	GPElbsigma1 = 0;
+	GPElbsigma2 = 60;
+	GPElbsigma3 = 0;
+	GPElbsigma4 = 60;
+}
+
+public void simRun () 
+{
+	// System.err.println("@@@@ GPEmedburst simRun entered @@@@");
+	gpemedburst = nslDiff (gpemedburst,gpemedbursttm, 
+                                    - gpemedburst + GPEmedburstTONIC 
+                                    - (GPEmedburstK * CDindmedburst_in));
+	GPEmedburst_out = Nsl2Sigmoid.eval (gpemedburst,GPElbsigma1, GPElbsigma2,
+                                           GPElbsigma3, GPElbsigma4);
+}
+
+
+
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

@@ -1,0 +1,841 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>SNRmedburst</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int CorticalArraySize,int StriatalArraySize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>SNRMapCount_bulk</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinInt</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinInt2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>SNRweights_bulk</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>3</dimensions>
+			<type>NslDinDouble3</type>
+			<params>CorticalArraySize,CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>SNRxmap_bulk</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinInt</categoryType>
+			<dimensions>3</dimensions>
+			<type>NslDinInt3</type>
+			<params>CorticalArraySize,CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>SNRymap_bulk</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinInt</categoryType>
+			<dimensions>3</dimensions>
+			<type>NslDinInt3</type>
+			<params>CorticalArraySize,CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>STNmedburst_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>CDdirmedburst_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>StriatalArraySize,StriatalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>SNRmedburst_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmedbursttm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRmedburstTONIC</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRcdlbK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRstnlbK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRlbsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRlbsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRlbsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRlbsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>snrmedburst</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNRcdinput</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>9,9</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>SNRmedburst</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>136</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>136</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>136</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>136</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinInt2">
+				<name>SNRMapCount_bulk</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble3">
+				<name>SNRweights_bulk</name>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinInt3">
+				<name>SNRxmap_bulk</name>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinInt3">
+				<name>SNRymap_bulk</name>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>80</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>80</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>80</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>STNmedburst_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>104</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>104</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>104</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>CDdirmedburst_in</name>
+				<parameters>StriatalArraySize,StriatalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>128</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>128</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>128</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>128</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>SNRmedburst_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>64</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>64</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>SNRMapCount_bulk</name>
+				<type>NslDinInt2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>56</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>40</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>SNRweights_bulk</name>
+				<type>NslDinDouble3</type>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>128</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>112</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>112</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>SNRxmap_bulk</name>
+				<type>NslDinInt3</type>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>SNRymap_bulk</name>
+				<type>NslDinInt3</type>
+				<parameters>CorticalArraySize,CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>224</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>224</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>256</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>256</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>240</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>240</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>STNmedburst_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>280</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>280</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>296</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>312</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>312</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>296</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>296</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>CDdirmedburst_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>StriatalArraySize,StriatalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>240</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>252</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>264</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>252</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>240</x>
+						<y>56</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>264</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>280</x>
+						<y>40</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>SNRmedburst_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>384</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>396</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>408</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>396</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>384</x>
+						<y>64</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>368</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>384</x>
+						<y>48</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment> SNRmedburst class
+ Represents the Substantia Nigra pars Reticulata Burst Cells Layer
+ @see     SNRmedburst
+ @version 0.1 96/11/19
+ @author  Michael Crowley
+ -var private CDdirmedburst_in - input coming from 
+ CDmedburst module (of type NslDouble2)&lt;p&gt;
+ -var private STNmedburst_in - input coming from 
+ STNmedburst module (of type NslDouble2)&lt;p&gt;
+ -var private SNRmedburst_out - output going to 
+ Thal module (of type NslDouble2)&lt;p&gt;</comment>
+		<methods>  // This function is also called in the lib.h module by:
+  // TestConnections, TestFoveaMapping
+
+public void initRun () {
+    snrmedbursttm = 0.01;
+    SNRmedburstTONIC = 30;
+    SNRcdlbK = 1;
+    SNRstnlbK = 0.5;
+    SNRlbsigma1 = 15;
+    SNRlbsigma2 = 60;
+    SNRlbsigma3 = 0;
+    SNRlbsigma4 = 60;
+    snrmedburst = 30;
+    SNRmedburst_out = Nsl2Sigmoid.eval(snrmedburst,SNRlbsigma1, SNRlbsigma2,
+                                           SNRlbsigma3, SNRlbsigma4);
+
+  }
+  public void simRun () {
+    int tempint;
+    /* &lt;Q&gt; SNRcdinput? */
+  // System.err.println("@@@@ SNRmedburst simRun entered @@@@");
+
+//System.out.println("SNRxmap "+new NslInt3(SNRxmap));
+
+    tempint = SumCDtoSNR (CDdirmedburst_in, SNRcdinput);
+//System.out.println("SNRweights:"+SNRweights_bulk);
+
+//    System.out.println("CD.max "+CDdirmedburst_in.max() + "\nSNR "+SNRcdinput);
+    snrmedburst = nslDiff (snrmedburst,snrmedbursttm, 
+                                    - snrmedburst + SNRmedburstTONIC 
+                                    - (SNRcdlbK * SNRcdinput)
+                                    + (SNRstnlbK * STNmedburst_in));
+    SNRmedburst_out = Nsl2Sigmoid.eval(snrmedburst,SNRlbsigma1, SNRlbsigma2,
+                                           SNRlbsigma3, SNRlbsigma4);
+ }
+
+
+public int SumCDtoSNR (NslDouble2 CD, NslDouble2 SNR) 
+  {
+  //  This function sums the activity in the medial CD circuit onto 
+  //  the medial SNR circuit through SNRweights, SNRxmap and SNRymap.
+
+    int i, j, k;
+    NslInt0 xmaploc=new NslInt0("xmaploc",this), ymaploc=new NslInt0("ymaploc",this);
+
+    //if (CD==null) System.err.println("CD null!!!!");
+    //if (SNR==null) System.err.println("SNR null!!!!");
+     // System.err.println("SNRmedburst.SumCDtoSNR: entered....");
+    SNR = 0;  // Ensure new mapping only
+     // System.err.println("SNRmedburst.SumCDtoSNR: A");
+     //System.err.println("SNRMapCount:"+SNRMapCount);
+    for (i = 0; i &lt; CorticalArraySize; i ++)
+      for (j = 0; j &lt; CorticalArraySize; j ++) {
+        for (k = 0; k &lt; SNRMapCount_bulk[i][j]; k ++) {
+    //System.err.println("SNRmedburst.SumCDtoSNR: loop: ("+i+","+j+","+k+")");
+          xmaploc = SNRxmap_bulk[i][j][k];
+          ymaploc = SNRymap_bulk[i][j][k];
+          SNR [i][j] = SNR[i][j] + CD [xmaploc.get()][ymaploc.get()] * SNRweights_bulk[i][j][k];
+        }
+      }
+    return 0;
+}
+</methods>
+	</nslm>
+</module>

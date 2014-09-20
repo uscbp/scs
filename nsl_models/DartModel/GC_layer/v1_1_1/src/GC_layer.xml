@@ -1,0 +1,555 @@
+<module>
+	<library>DartModel</library>
+	<name>GC_layer</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments></arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>pp_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>10,10</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>fcx_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>10,4</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>gc_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>30,30</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>f_max</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>100</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>w</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gc_mp</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>30,30</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gc_offset</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gc_slope</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gc_dist</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>gc_nd</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>src</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>1</dimensions>
+			<type>int</type>
+			<params>3600</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Xo</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>1</dimensions>
+			<type>int</type>
+			<params>3600</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Yo</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>1</dimensions>
+			<type>int</type>
+			<params>3600</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Xd</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>1</dimensions>
+			<type>int</type>
+			<params>3600</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Yd</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>1</dimensions>
+			<type>int</type>
+			<params>3600</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>NC</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DartModel</library>
+		<module>GC_layer</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>144</x>
+				<y>64</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>64</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>pp_in</name>
+				<parameters>10,10</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>fcx_in</name>
+				<parameters>10,4</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>gc_out</name>
+				<parameters>30,30</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>120</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>144</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>120</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>144</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>pp_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>10,10</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>168</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>180</x>
+						<y>56</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>72</y>
+					</corner>
+					<corner>
+						<x>180</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>168</x>
+						<y>88</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>192</x>
+						<y>72</y>
+					</min>
+					<max>
+						<x>208</x>
+						<y>72</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>fcx_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>10,4</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>168</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>180</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>180</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>168</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>192</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>208</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>gc_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>30,30</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>312</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>324</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>336</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>324</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>312</x>
+						<y>144</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>296</x>
+						<y>128</y>
+					</min>
+					<max>
+						<x>312</x>
+						<y>128</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() 
+{
+	gc_offset = (NslDouble0)nslGetValue("dartModel.gc_offset");
+	gc_slope  = (NslDouble0)nslGetValue("dartModel.gc_slope");
+	gc_dist   = (NslDouble0)nslGetValue("dartModel.gc_dist");
+	gc_nd     = (NslInt0)nslGetValue("dartModel.gc_nd");
+
+	w = 1./(double)gc_nd;
+
+	int gx,gy,i,x,y;
+     
+	gc_out = 50.;
+	gc_mp = 0.;
+	// Create mapping function
+	NC = 0;
+	for(gx=0;gx&lt;30;gx++)
+	{
+		for(gy=0;gy&lt;30;gy++)
+		{
+			for(i=0;i&lt;gc_nd;i++)
+			{
+				Xd[NC] = gx;
+				Yd[NC] = gy;
+				// PP input
+				if(nslRandom() &lt; gc_dist)
+				{ 
+					src[NC] = 0;
+					Xo[NC] = (int)nslRandom(3,8);
+					Yo[NC] = (int)nslRandom(0,10);
+		 		} 
+				// FCX input
+				else 
+				{ 
+					src[NC] = 1;
+					Xo[NC] = (int)nslRandom(0,10);
+					Yo[NC] = (int)nslRandom(1,3);
+				}
+				NC++;
+			}
+		}
+	}
+}
+
+public void simTrain() 
+{
+	simRun();
+}
+
+public void simRun()
+{
+	int i,j;
+	int mx,my,ix,iy;
+
+	// Map inputs onto 30x30 array using mapping function
+          
+	gc_mp = 0.;
+	for(i=0;i&lt;NC;i++)
+	{
+		mx = Xd[i];
+		my = Yd[i];
+		ix = Xo[i];
+		iy = Yo[i];
+		if(src[i]==0)
+			gc_mp[mx][my] = gc_mp[mx][my] + pp_in[ix][iy];
+		else
+			gc_mp[mx][my] = gc_mp[mx][my] + fcx_in[ix][iy];
+	}
+     
+	gc_mp = w * gc_mp;
+
+	gc_out = f_max * nslSigmoid(gc_mp,gc_slope, gc_offset);
+}
+
+
+</methods>
+	</nslm>
+</module>

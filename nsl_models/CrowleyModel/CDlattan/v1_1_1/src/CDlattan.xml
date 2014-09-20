@@ -1,0 +1,453 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>CDlattan</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int CorticalArraySize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>SNCdop_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>CDlatinh_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>CDlattan_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cdlattantm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cdlattanTONIC</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDSNCdopK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDltsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDltsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDltsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CDltsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>cdlattan</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>CDlattan</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>64</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>64</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>SNCdop_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>CDlatinh_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>CDlattan_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>SNCdop_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>208</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>208</x>
+						<y>80</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>232</x>
+						<y>64</y>
+					</min>
+					<max>
+						<x>248</x>
+						<y>64</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>CDlatinh_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>208</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>208</x>
+						<y>152</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>232</x>
+						<y>136</y>
+					</min>
+					<max>
+						<x>248</x>
+						<y>136</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>CDlattan_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>368</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>380</x>
+						<y>88</y>
+					</corner>
+					<corner>
+						<x>392</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>380</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>368</x>
+						<y>120</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>352</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>368</x>
+						<y>104</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment> CDlattan class
+ Represents the Caudate Tonically Active Cells Layer
+ see     CDlattan
+ version 0.1 96-11-19
+ author  Michael Crowley
+ var private CDlatinh_in - input coming from CDlatinh module (of type NslDouble2)
+ var private SNCdop_in - input coming from SNC module (of type NslDouble2)
+ var private CDlattan_out - output going to CDlatburst module (of type NslDouble2)</comment>
+		<methods>public void initRun () 
+{
+	cdlattantm = 0.01;
+	cdlattanTONIC = 10;
+	CDSNCdopK = 0.5;
+	CDltsigma1 = 0;
+	CDltsigma2 = 10;
+	CDltsigma3 = 0;
+	CDltsigma4 = 10;
+}
+
+public void simRun () 
+{
+	// System.err.println("@@@@ CDlattan simRun entered @@@@");
+	cdlattan = nslDiff (cdlattan,cdlattantm, -cdlattan + cdlattanTONIC - CDlatinh_in - (CDSNCdopK * SNCdop_in));
+	CDlattan_out = Nsl2Sigmoid.eval(cdlattan,CDltsigma1, CDltsigma2, CDltsigma3, CDltsigma4);
+}
+
+
+
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

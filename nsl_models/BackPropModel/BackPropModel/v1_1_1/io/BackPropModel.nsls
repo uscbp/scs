@@ -1,0 +1,13 @@
+# SCCS  %W% - %G% - %U%
+
+# Copyright (c) 1999 University of Southern California Brain Project
+# email nsl@java.usc.edu
+
+nsl set backPropModel.train.pInput  { { 0 0} { 0 1} { 1 0} { 1 1} }
+nsl set backPropModel.train.pOutput { { 0} { 1} { 1} {0} }
+nsl set system.numTrainEpochs 5000
+nsl set backPropModel.layers.be.stopError 0.001
+nsl set backPropModel.layers.bo.lrate 0.8
+nsl set backPropModel.layers.bh.lrate 0.8
+nsl doTrainEpochTimes
+

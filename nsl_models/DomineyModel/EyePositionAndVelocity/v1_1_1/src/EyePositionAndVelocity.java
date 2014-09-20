@@ -1,0 +1,217 @@
+package DomineyModel.EyePositionAndVelocity.v1_1_1.src;
+
+/*********************************/
+/*                               */
+/*   Importing all Nsl classes   */
+/*                               */
+/*********************************/
+
+import nslj.src.system.*;
+import nslj.src.cmd.*;
+import nslj.src.lang.*;
+import nslj.src.math.*;
+import nslj.src.display.*;
+import nslj.src.display.j3d.*;
+
+/*********************************/
+
+public class EyePositionAndVelocity extends NslModule{
+
+//NSL Version: 3_0_n
+//Sif Version: 9
+//libNickName: DomineyModel
+//moduleName:  EyePositionAndVelocity
+//versionName: 1_1_1
+//floatSubModules: true
+
+
+//variables 
+public  NslDinFloat0 ltn; // 
+public  NslDinFloat0 rtn; // 
+public  NslDinFloat0 utn; // 
+public  NslDinFloat0 dtn; // 
+public  NslDinFloat0 lebn; // 
+public  NslDinFloat0 rebn; // 
+public  NslDinFloat0 uebn; // 
+public  NslDinFloat0 debn; // 
+public  NslDinFloat0 ltnChange; // 
+public  NslDinFloat0 rtnChange; // 
+public  NslDinFloat0 utnChange; // 
+public  NslDinFloat0 dtnChange; // 
+public  NslDoutFloat0 horizontalVelocity; // 
+public  NslDoutFloat0 verticalVelocity; // 
+public  NslDoutFloat0 horizontalTheta; // 
+public  NslDoutFloat0 verticalTheta; // 
+private NslFloat0 eyeH_k1; // 
+private NslFloat0 eyeV_k1; // 
+private NslFloat0 eyeH_k2; // 
+private NslFloat0 eyeV_k2; // 
+private NslFloat0 vv_k1; // 
+private NslFloat0 vv_k2; // 
+private NslFloat0 vv_k3; // 
+private NslFloat0 hv_k1; // 
+private NslFloat0 hv_k2; // 
+private NslFloat0 hv_k3; // 
+private NslFloat0 horizontalTheta_k1; // 
+private NslFloat0 verticalTheta_k1; // 
+private NslFloat0 eyeVdown_k1; // 
+private NslFloat0 eyeHleft_k1; // 
+private NslFloat0 eyeVdown_k2; // 
+private NslFloat0 eyeHleft_k2; // 
+private NslFloat0 eyeV; // 
+private NslFloat0 eyeH; // 
+private NslFloat0 eyeVdown; // 
+private NslFloat0 eyeHleft; // 
+
+//methods 
+public void initRun() 
+{
+	horizontalVelocity.set(0);;
+	verticalVelocity.set(0);
+	horizontalTheta.set(0);
+	verticalTheta.set(0);
+	eyeV.set(0);
+	eyeH.set(0);
+	eyeVdown.set(0);
+	eyeHleft.set(0);
+
+	eyeV_k1.set( 154);
+	eyeV_k2.set(  0.3636364);
+	eyeH_k1.set(  154);
+	eyeH_k2.set(  0.3636364);
+	vv_k1.set(  0);
+	vv_k2.set(  17);
+	vv_k3.set(  17);
+	hv_k1.set(  0);
+	hv_k2.set(  17);
+	hv_k3.set(  17);
+	horizontalTheta_k1.set(  0.1);
+	verticalTheta_k1.set(  0.1);
+	eyeVdown_k1.set(  154);
+	eyeVdown_k2.set(  0.3636364);
+	eyeHleft_k1.set(  154);
+	eyeHleft_k2.set(  0.3636364);
+}
+	
+public void simRun() 
+{
+	eyeH.set(  __tempEyePositionAndVelocity1.setReference(__tempEyePositionAndVelocity0.setReference(eyeH_k2.get()*rtn.get()).get()-56) );
+	eyeV.set(  __tempEyePositionAndVelocity3.setReference(__tempEyePositionAndVelocity2.setReference(eyeV_k2.get()*utn.get()).get()-56) ); 
+	verticalVelocity.set(  __tempEyePositionAndVelocity10.setReference(__tempEyePositionAndVelocity9.setReference(__tempEyePositionAndVelocity8.setReference(__tempEyePositionAndVelocity4.setReference(vv_k1.get()*uebn.get()).get()-__tempEyePositionAndVelocity5.setReference(vv_k1.get()*debn.get()).get()).get()+__tempEyePositionAndVelocity6.setReference(vv_k2.get()*utnChange.get()).get()).get()-__tempEyePositionAndVelocity7.setReference(vv_k3.get()*dtnChange.get()).get()));
+	horizontalVelocity.set(  __tempEyePositionAndVelocity17.setReference(__tempEyePositionAndVelocity16.setReference(__tempEyePositionAndVelocity15.setReference(__tempEyePositionAndVelocity11.setReference(hv_k1.get()*rebn.get()).get()-__tempEyePositionAndVelocity12.setReference(hv_k1.get()*lebn.get()).get()).get()+__tempEyePositionAndVelocity13.setReference(hv_k2.get()*rtnChange.get()).get()).get()-__tempEyePositionAndVelocity14.setReference(hv_k3.get()*ltnChange.get()).get()));
+	horizontalTheta.set(  __tempEyePositionAndVelocity18.setReference(horizontalTheta_k1.get()*eyeH.get()));
+	verticalTheta.set(  __tempEyePositionAndVelocity19.setReference(verticalTheta_k1.get()*eyeV.get()));
+
+	//NOTE: eyeHdown and eyeVleft represents gaze angle, and is not used in the
+	//model, but only as an indicator of eye position for experimenter
+	eyeVdown.set(  __tempEyePositionAndVelocity21.setReference(__tempEyePositionAndVelocity20.setReference(eyeVdown_k2.get()*dtn.get()).get()-56) );
+	eyeHleft.set(  __tempEyePositionAndVelocity23.setReference(__tempEyePositionAndVelocity22.setReference(eyeHleft_k2.get()*ltn.get()).get()-56) );
+
+	if (system.debug>=12) 
+	{
+		system.nslPrintln("EyePos: simRun: horizontalVelocity:"+horizontalVelocity.toString());
+		system.nslPrintln("EyePos: simRun: verticalVelocity:"+verticalVelocity.toString());
+		system.nslPrintln("EyePos: simRun: horizontalTheta:"+horizontalTheta.toString());
+		system.nslPrintln("EyePos: simRun: verticalTheta:"+verticalTheta.toString());
+	}
+}
+public void makeConn(){
+}
+
+	/******************************************************/
+	/*                                                    */
+	/* Generated by nslc.src.NslCompiler. Do not edit these lines! */
+	/*                                                    */
+	/******************************************************/
+
+	/* Constructor and related methods */
+	/* makeinst() declared variables */
+
+	/* Formal parameters */
+
+	/* Temporary variables */
+		NslFloat0 __tempEyePositionAndVelocity0 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity1 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity2 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity3 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity4 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity5 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity6 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity7 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity8 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity9 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity10 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity11 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity12 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity13 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity14 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity15 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity16 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity17 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity18 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity19 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity20 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity21 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity22 = new NslFloat0();
+		NslFloat0 __tempEyePositionAndVelocity23 = new NslFloat0();
+
+	/* GENERIC CONSTRUCTOR: */
+	public EyePositionAndVelocity(String nslName, NslModule nslParent)
+{
+		super(nslName, nslParent);
+		initSys();
+		makeInstEyePositionAndVelocity(nslName, nslParent);
+	}
+
+	public void makeInstEyePositionAndVelocity(String nslName, NslModule nslParent)
+{ 
+		Object[] nslArgs=new Object[]{};
+		callFromConstructorTop(nslArgs);
+		ltn = new NslDinFloat0("ltn", this);
+		rtn = new NslDinFloat0("rtn", this);
+		utn = new NslDinFloat0("utn", this);
+		dtn = new NslDinFloat0("dtn", this);
+		lebn = new NslDinFloat0("lebn", this);
+		rebn = new NslDinFloat0("rebn", this);
+		uebn = new NslDinFloat0("uebn", this);
+		debn = new NslDinFloat0("debn", this);
+		ltnChange = new NslDinFloat0("ltnChange", this);
+		rtnChange = new NslDinFloat0("rtnChange", this);
+		utnChange = new NslDinFloat0("utnChange", this);
+		dtnChange = new NslDinFloat0("dtnChange", this);
+		horizontalVelocity = new NslDoutFloat0("horizontalVelocity", this);
+		verticalVelocity = new NslDoutFloat0("verticalVelocity", this);
+		horizontalTheta = new NslDoutFloat0("horizontalTheta", this);
+		verticalTheta = new NslDoutFloat0("verticalTheta", this);
+		eyeH_k1 = new NslFloat0("eyeH_k1", this);
+		eyeV_k1 = new NslFloat0("eyeV_k1", this);
+		eyeH_k2 = new NslFloat0("eyeH_k2", this);
+		eyeV_k2 = new NslFloat0("eyeV_k2", this);
+		vv_k1 = new NslFloat0("vv_k1", this);
+		vv_k2 = new NslFloat0("vv_k2", this);
+		vv_k3 = new NslFloat0("vv_k3", this);
+		hv_k1 = new NslFloat0("hv_k1", this);
+		hv_k2 = new NslFloat0("hv_k2", this);
+		hv_k3 = new NslFloat0("hv_k3", this);
+		horizontalTheta_k1 = new NslFloat0("horizontalTheta_k1", this);
+		verticalTheta_k1 = new NslFloat0("verticalTheta_k1", this);
+		eyeVdown_k1 = new NslFloat0("eyeVdown_k1", this);
+		eyeHleft_k1 = new NslFloat0("eyeHleft_k1", this);
+		eyeVdown_k2 = new NslFloat0("eyeVdown_k2", this);
+		eyeHleft_k2 = new NslFloat0("eyeHleft_k2", this);
+		eyeV = new NslFloat0("eyeV", this);
+		eyeH = new NslFloat0("eyeH", this);
+		eyeVdown = new NslFloat0("eyeVdown", this);
+		eyeHleft = new NslFloat0("eyeHleft", this);
+		callFromConstructorBottom();
+	}
+
+	/******************************************************/
+	/*                                                    */
+	/* End of automatic declaration statements.           */
+	/*                                                    */
+	/******************************************************/
+
+
+}//end EyePositionAndVelocity
+

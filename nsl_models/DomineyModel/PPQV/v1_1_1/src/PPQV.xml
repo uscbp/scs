@@ -1,0 +1,994 @@
+<module>
+	<library>DomineyModel</library>
+	<name>PPQV</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>horizontalVelocity</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDinFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>verticalVelocity</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDinFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>scDelay</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>erasure2</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>posteriorParietal</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>fovElem</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>ppqv</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvCtr</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvFactor</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>oblique</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvMask_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvMask_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqvPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqvPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqv_kx1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqv_kx2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqv_ky1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqv_ky2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvMask</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>qvmask1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>inhSurr</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqvPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqva</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqvT</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>protocolNum</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>center</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="SubModule">
+			<name>domineyLib</name>
+			<access>public</access>
+			<scope>local</scope>
+			<type>DomineyLib</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<library>DomineyModel</library>
+			<version>v1_1_1</version>
+			<getCurrentVersion>true</getCurrentVersion>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>PPQV</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>176</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>176</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>176</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>176</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat0">
+				<name>horizontalVelocity</name>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat0">
+				<name>verticalVelocity</name>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>scDelay</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>72</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>72</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>72</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>72</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>erasure2</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>104</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>104</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>104</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>posteriorParietal</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>136</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>136</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>136</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>136</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>fovElem</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>168</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>168</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>168</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>168</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>ppqv</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>horizontalVelocity</name>
+				<type>NslDinFloat0</type>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>8</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>8</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>24</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>40</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>40</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>24</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>verticalVelocity</name>
+				<type>NslDinFloat0</type>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>scDelay</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>152</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>136</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>136</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>erasure2</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>184</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>184</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>216</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>200</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>200</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>posteriorParietal</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>256</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>272</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>256</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>256</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>fovElem</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>304</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>304</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>320</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>336</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>336</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>320</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>320</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>ppqv</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>376</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>388</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>400</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>388</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>360</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>376</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() 
+{
+	qvMask_k1.nslSetAccess('W');
+}
+
+public void initRun() 
+{
+	protocolNum=-1;
+	protocolNum=(NslInt0)nslGetValue("domineyModel.protocolNum");
+	center = stdsz/2;
+
+	ppqv=0;
+        ppqva=0;
+        ppqvT=0;
+        qvMask=0;
+        qvmask1=0;
+        inhSurr=0;
+        ppqvPot=0;
+
+	qvCtr = 1;       
+ 
+	qvFactor = 1600;
+	oblique = 1;
+
+	qvMask_k1=1.23;
+	//98/11/17 aa: qvMask_k1 =1.23 for non-memory protocolNums
+	// and 0 for memory protocolNums
+	if ((protocolNum==2)||(protocolNum==3)) 
+	{
+		qvMask_k1=0;  //0 for memory protocolNums to disable
+		// ppqv's intrinsic memory
+	}
+	// 99/7/27 these are memory saccades but require 
+	// ppqv to save the second second until FON goes high
+	// and the new location can be locked into fefmem and thmem.
+
+	if ((protocolNum==8)||(protocolNum==15)) 
+	{
+		qvMask_k1=1.23;
+	}
+
+	qvMask_k2=0; 
+	ppqvPot_k1= 1;
+	ppqvPot_k2= 0;// for scDelay
+	ppqv_kx1=0;
+
+	ppqv_kx2=97.2; //aa: 96.5 or 97.4 in 2.1.7 but no description as 
+	// too which protocolNum 
+
+	ppqv_ky1=0;
+	ppqv_ky2=90;
+	inhSurr=0;  //aa: 98-7-20 no data to support this except comment below
+}
+
+public void simRun() 
+{
+	qvmask1 =domineyLib.shift(horizontalVelocity,verticalVelocity,qvFactor,stdsz);
+
+	// commented out in 2.1.7
+	// qvmask2 =DomineyLib.shift(horizontalVelocity,verticalVelocity,
+	// qvFactor, stdsz, qvCenter, Oblique);
+
+	//qvMask = qvMask_k1*qvmask1 + qvMask_k2*qvmask2;
+	// qvMask_k2 always 0 in 2.1.7
+	qvMask = qvMask_k1*qvmask1;
+
+	// This draws a square -5 elements on a side- around the fovea area
+	qvMask[2][2] = inhSurr		;
+	qvMask[2][3] = inhSurr		;
+	qvMask[2][4] = inhSurr		; 
+	qvMask[2][5] = inhSurr		;
+	qvMask[2][6] = inhSurr		;
+	qvMask[3][6] = inhSurr		;
+	qvMask[4][6] = inhSurr		;
+ 	qvMask[5][6] = inhSurr		;
+	qvMask[6][2] = inhSurr		;
+	qvMask[6][3] = inhSurr		;
+	qvMask[6][4] = inhSurr		;
+	qvMask[6][5] = inhSurr		;
+	qvMask[6][6] = inhSurr		;
+	qvMask[3][2] = inhSurr		;
+	qvMask[4][2] = inhSurr		; 
+	qvMask[5][2] = inhSurr		;
+
+
+	ppqvPot = posteriorParietal  + qvMask@ppqva - ppqvPot_k1*fovElem -ppqvPot_k2*(erasure2@scDelay);
+	ppqvPot = erasure2^ppqvPot; 
+	ppqva = nslSigmoid(ppqvPot,ppqv_kx1,ppqv_kx2,ppqv_ky1,ppqv_ky2);
+	ppqv = ppqva;
+	ppqv	[center][center] = 0; 	// center of fovea is zero
+
+	//98/11/9 aa: added until 3d plot gets fixed
+	// using this matrix instead of ppqv for 3d display
+	ppqvT =nslTrans(ppqv);
+
+	if (system.debug&gt;=17) 
+	{
+		nslPrintln("PPQV: ppqv: ");
+		nslPrintln(ppqv);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

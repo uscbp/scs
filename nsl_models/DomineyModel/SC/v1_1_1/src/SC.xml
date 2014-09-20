@@ -1,0 +1,1588 @@
+<module>
+	<library>DomineyModel</library>
+	<name>SC</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>snrsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>fefsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>stimulation</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>fon</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>retina</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>ppqv</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>saccademask</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>scqv</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>supcol</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>scsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>scDelay</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsupPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scqvPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsacPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scDelay_tm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsupPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsupPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsacPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsacPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k5</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot_k6</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsup_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsup_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsup_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsup_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsac_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsac_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsac_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsac_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcol_x1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcol_x2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcol_y1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcol_y2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcol_k3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsupPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scqvPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsacPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>supcolPot</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>scsup</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>ppqv_winner</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment>winner take all resultant</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sc_winner</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment>winner take all resultant</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>nWTAThreshold</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>protocolNum</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>center</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="SubModule">
+			<name>domineyLib</name>
+			<access>public</access>
+			<scope>local</scope>
+			<type>DomineyLib</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<library>DomineyModel</library>
+			<version>v1_1_1</version>
+			<getCurrentVersion>true</getCurrentVersion>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>SC</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>152</x>
+				<y>160</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>160</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>160</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>160</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>snrsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>fefsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>stimulation</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>fon</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>80</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>80</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>80</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>retina</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>104</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>104</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>104</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>ppqv</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>128</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>128</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>128</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>128</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinFloat2">
+				<name>saccademask</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>152</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>152</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>152</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>scqv</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>128</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>128</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>152</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>supcol</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>128</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>128</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>152</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>scsac</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>128</x>
+						<y>104</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>104</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>128</x>
+						<y>104</y>
+					</coordinate>
+					<coordinate>
+						<x>152</x>
+						<y>104</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>scDelay</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>128</x>
+						<y>144</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>144</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>128</x>
+						<y>144</y>
+					</coordinate>
+					<coordinate>
+						<x>152</x>
+						<y>144</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>snrsac</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>48</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>32</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>fefsac</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>stimulation</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>176</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>160</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>160</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>fon</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>224</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>240</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>224</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>224</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>retina</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>120</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>288</y>
+					</corner>
+					<corner>
+						<x>132</x>
+						<y>304</y>
+					</corner>
+					<corner>
+						<x>120</x>
+						<y>304</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>144</x>
+						<y>288</y>
+					</min>
+					<max>
+						<x>160</x>
+						<y>288</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>ppqv</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>184</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>196</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>208</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>196</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>184</x>
+						<y>48</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>208</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>224</x>
+						<y>32</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>saccademask</name>
+				<type>NslDinFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>184</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>196</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>208</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>196</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>184</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>208</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>224</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>scqv</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>328</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>328</x>
+						<y>48</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>312</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>328</x>
+						<y>32</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>supcol</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>328</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>328</x>
+						<y>112</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>312</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>328</x>
+						<y>96</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>scsac</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>328</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>328</x>
+						<y>176</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>312</x>
+						<y>160</y>
+					</min>
+					<max>
+						<x>328</x>
+						<y>160</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>scDelay</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>328</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>224</y>
+					</corner>
+					<corner>
+						<x>340</x>
+						<y>240</y>
+					</corner>
+					<corner>
+						<x>328</x>
+						<y>240</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>312</x>
+						<y>224</y>
+					</min>
+					<max>
+						<x>328</x>
+						<y>224</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule() 
+{
+	supcol.nslSetAccess('W');
+	supcol_k3.nslSetAccess('W');
+}
+
+public void initRun() 
+{
+	center = (int)stdsz/2;
+	nWTAThreshold = (NslFloat0)nslGetValue("domineyModel.nWTAThreshold");
+	protocolNum=-1;
+	protocolNum= (NslInt0)nslGetValue("domineyModel.protocolNum");
+
+	scqv=0;
+	supcol=0;
+	scDelay=0;
+	scsupPot=0;
+	scqvPot=0;
+	scsacPot=0;
+	supcolPot=0;
+	scsac=0;
+	scsup=0;
+	ppqv_winner=0;
+	sc_winner=0;
+
+	scsupPot_tm =.03 ;
+	scqvPot_tm = .01;
+	scsacPot_tm =.01 ;  //aa: 0.3 is mentioned in 2.1.7
+	supcolPot_tm = .038;
+	scDelay_tm =0.1 ;
+	scsupPot_k1 =15 ;
+	scsupPot_k2 =1 ;
+	scsacPot_k1 = 1;
+	scsacPot_k2 = 1.1;
+	supcolPot_k1 =0;
+	supcolPot_k2 =1 ;
+	supcolPot_k3 =1.5 ;
+	supcolPot_k4 =2 ;
+	supcolPot_k5 = 0;  // since k5 is always 0, we can remove it
+				 // from calculations
+	supcolPot_k6 =4 ;  // published doc has 2 for all experiments
+	scsup_x1 =70 ;
+	scsup_x2 = 90;
+	scsup_y1 =0 ;
+	scsup_y2 =90 ;
+	scsac_x1 =80 ;
+	scsac_x2 =90 ;
+	scsac_y1 =0 ;
+	scsac_y2 =90 ;
+	supcol_x1 =85;
+	supcol_x2 =99 ;
+	supcol_y1 =0 ;
+	supcol_y2 =500 ;	
+	supcol_k3 =0;
+
+
+	// 98/11/18 aa: values for supcol_k3 depend on protocolNum:
+	// 0 for single and double and memory
+	// supcol_k3 =2.6 for stimulation SC CompensatoryI - why?
+	// supcol_k3 =3.5 for stimulation SC CompensatoryII - why?
+	// supcol_k3 =7 for collision - why?
+	// published doc has supcol_k3=2.9 for experiment 13 but in 
+	// the potential equation
+	
+
+	supcol_k3=0;  // if stimulation is not used 
+	// if sc compI
+	if ((protocolNum==9)||( protocolNum==14)) 
+	{
+		supcol_k3=2.6;  
+	}
+	// if sc compensatoryII
+	else if (protocolNum==10) 
+	{ 
+               supcol_k3=3.5;  
+	} 
+	//not doing collision protocolNums // if collision ??
+	//              supcol_k3=7;  
+}
+	
+public void simRun() 
+{
+	scsupPot=nslDiff(scsupPot,scsupPot_tm, - scsupPot - scsupPot_k1*fon + scsupPot_k2*retina);
+
+	ppqv_winner = domineyLib.winnerTakeAll(ppqv,nWTAThreshold.get(),stdsz);
+
+	scqvPot=nslDiff(scqvPot,scqvPot_tm,-scqvPot + ppqv_winner);
+
+	scsacPot=nslDiff(scsacPot,scsacPot_tm, -scsacPot +scsacPot_k1*fefsac - 
+		scsacPot_k2*snrsac);
+
+	// supcolPot=nslDiff(supcolPot,supcolPot_tm, -supcolPot  + 
+	//	supcolPot_k2*scsac + 
+	//	supcolPot_k3*scqv -
+	//	supcolPot_k4*fon  + 
+	//	supcolPot_k5*stimulation +  //removing because k5 always 0
+	//	supcolPot_k6*scsup - 
+	//	supcolPot_k1*scDelay); // this is zero.
+	supcolPot=nslDiff(supcolPot,supcolPot_tm, -supcolPot + supcolPot_k2*scsac + supcolPot_k3*scqv -
+		supcolPot_k4*fon + supcolPot_k6*scsup - supcolPot_k1*scDelay); // this is zero.
+	// aa: should we remove the kx*stimulation factor
+	// from both supcol and fefsac force equations 
+	// and put the kx*stimulation back in the potential calculation as
+	// it is in the published paper ? 
+
+	supcolPot[center][center] = 0; // no saccades to where we already are! 
+
+	sc_winner = domineyLib.winnerTakeAll(supcolPot,nWTAThreshold.get(),stdsz);
+
+	scsup = nslSigmoid(scsupPot,scsup_x1,scsup_x2,scsup_y1,scsup_y2);
+
+	scqv = (saccademask^scqvPot);
+
+	scsac = nslSigmoid(scsacPot,scsac_x1,scsac_x2,scsac_y1,scsac_y2);
+
+	//aa: from the 92 paper equation 15 is set  to zero if lesioning SC
+        if ((protocolNum==6)|| (protocolNum==13))  
+	{ 
+		// lesion SC
+               supcol=0;
+        } 
+	else 
+	{
+		supcol = nslSigmoid(sc_winner,supcol_x1,supcol_x2,supcol_y1,supcol_y2); 	
+		supcol = supcol + (supcol_k3*stimulation);
+        }
+
+	scDelay=nslDiff(scDelay,scDelay_tm, -scDelay + supcol);
+
+	if (system.debug&gt;=24) 
+	{
+ 		nslPrintln("SC: :supcolPot ");
+		nslPrintln(supcolPot);
+ 		nslPrintln("SC: :scqv ");
+		nslPrintln(scqv);
+ 		nslPrintln("SC: :scDelay ");
+		nslPrintln(scDelay);
+ 		nslPrintln("SC: supcol ");
+		nslPrintln(supcol);
+ 		nslPrintln("SC: scsac ");
+		nslPrintln(scsac);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

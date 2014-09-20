@@ -1,0 +1,373 @@
+<module>
+	<library>DomineyModel</library>
+	<name>StimSC</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>stimSC</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>currentTime</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>currentTimePlusDelta</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>value</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>float</categoryType>
+			<dimensions>0</dimensions>
+			<type>float</type>
+			<params></params>
+			<inits>175</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>localstdsz</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>center</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerP3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerP2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerM2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerM3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>protocolNum</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>StimSC</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>64</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>88</x>
+				<y>64</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>64</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>64</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>stimSC</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>88</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>88</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>stimSC</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>16</x>
+						<y>0</y>
+					</corner>
+					<corner>
+						<x>28</x>
+						<y>0</y>
+					</corner>
+					<corner>
+						<x>40</x>
+						<y>16</y>
+					</corner>
+					<corner>
+						<x>28</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>16</x>
+						<y>32</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>16</x>
+						<y>16</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment>The Saccade generator is ala Scudder;  
+These arrays represent the increased density of supcol projection 
+to llbn as a function of increase eccentricity in supcol. 
+
+Note, the fixation point for a 27x27 grid is 13,13
+However, the StimSC module uses a 9x9 array
+
+Note, see the documentation in VisualInput.mod</comment>
+		<methods>public void initModule() 
+{
+	stimSC.nslSetAccess('W');
+}
+
+public void initRun() 
+{
+	protocolNum=-1;
+	protocolNum=(NslInt0)nslGetValue("domineyModel.protocolNum");
+
+	// Have to do the following because we start at 0 .
+	// Note: for 27xby27 the center is 13,13
+	// however, the visual field has been pared down by the time
+	// the signal gets to the supcol, thus we are dealing with
+	// a 9x9 array here with a center of 4,4
+
+	stimSC=0;	
+
+	center = (int)stdsz/2; //(9/2 =4.5 round down 4)
+	centerP3= center + 3;
+	centerP2= center + 2;
+	centerM3= center - 3;
+	centerM2= center - 2;
+}
+
+public void simRun() 
+{
+	currentTime=system.getCurTime();	
+	currentTime=currentTime + 0.005;
+
+	// ("stimulated SC I")
+	if (protocolNum==9) 
+	{
+		// light up Fake Stimulated Target
+		if ((currentTime&gt;=0.07) &amp;&amp;(currentTime&lt;=0.11))
+		{
+			stimSC[centerM3][center]=value;
+		}
+		// unlight stimSC
+		if (currentTime&gt;0.11) 
+		{
+			stimSC[centerM3][center]=0;
+		}
+	}
+	//("stimulated SC II")
+	if (protocolNum==10) 
+	{
+		// light up Fake Stimulated Target
+		if ((currentTime&gt;=0.07) &amp;&amp;(currentTime&lt;=0.11))
+		{
+			stimSC[center][centerM2]=value;
+		}
+		// unlight stimSC
+		if (currentTime&gt;0.11) 
+		{
+			stimSC[center][centerM2]=0;
+		}
+	}
+	//("Stimulate SC and Lesion FEF I")
+	else if (protocolNum==14) 
+	{
+		// light up Fake Stimulated Target
+		if ((currentTime&gt;=0.07) &amp;&amp;(currentTime&lt;=0.11))
+		{
+			stimSC[centerM3][center]=value;
+		}
+		// unlight stimSC
+		if (currentTime&gt;0.11) 
+		{
+			stimSC[centerM3][center]=0;
+		}
+	}
+	if (system.debug&gt;1) 
+	{
+		//nslPrintln("debug: stimSC ");
+		//nslPrintln(stimSC);
+		nslPrintln("debug: stimSC:"+ stimSC);
+	}
+} //end simRun
+
+
+
+
+</methods>
+	</nslm>
+</module>

@@ -1,0 +1,547 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>PFCmem</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int array_size</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>ThPFCmem_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>LIPmem_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>pfcseq_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>PFCmem_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcmem</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcmemtm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcmemK1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcmemK2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pfcseqK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCmemsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCmemsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCmemsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>PFCmemsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>PFCmem</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>ThPFCmem_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>8</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>8</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>8</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>8</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>LIPmem_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>pfcseq_in</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>PFCmem_out</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>ThPFCmem_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>112</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>112</x>
+						<y>64</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>136</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>48</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>LIPmem_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>112</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>112</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>112</x>
+						<y>128</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>136</x>
+						<y>112</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>112</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>pfcseq_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>112</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>136</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>124</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>112</x>
+						<y>192</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>136</x>
+						<y>176</y>
+					</min>
+					<max>
+						<x>152</x>
+						<y>176</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>PFCmem_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>256</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>268</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>280</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>268</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>136</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>240</x>
+						<y>120</y>
+					</min>
+					<max>
+						<x>256</x>
+						<y>120</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initRun(){
+    PFCmem_out = 0.0;
+    pfcmem = 0.0;
+
+    pfcmemtm = 0.008;
+    pfcmemK1 = 1.5;
+    pfcmemK2 = 0.5;
+    pfcseqK = 2.0;
+    PFCmemsigma1 = 0.0;
+    PFCmemsigma2 = 180.0;
+    PFCmemsigma3 = 0.0;
+    PFCmemsigma4 = 90.0;
+}
+
+public void simRun(){
+	//ThPFCmem_in = pfcmemK1* ThPFCmem_in;
+
+  // System.err.println("@@@@ PFCmem simRun entered @@@@");
+    pfcmem = nslDiff(pfcmem,pfcmemtm,
+			 -pfcmem
+			 + (pfcmemK1 * ThPFCmem_in)
+			 + (pfcmemK2 * LIPmem_in)
+			 + (pfcseqK * pfcseq_in ^ LIPmem_in));
+   
+    pfcmem[4][4] = 0.0;
+    PFCmem_out = Nsl2Sigmoid.eval(pfcmem,PFCmemsigma1, PFCmemsigma2,
+			      PFCmemsigma3, PFCmemsigma4);
+  }
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

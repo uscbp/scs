@@ -1,0 +1,337 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>SNC</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int CorticalArraySize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>LimbicCortex_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>SNCdop_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sncdop</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDouble2</type>
+			<params>CorticalArraySize,CorticalArraySize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sncdoptm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNCdopsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNCdopsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNCdopsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SNCdopsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>SNC</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>LimbicCortex_in</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>SNCdop_out</name>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>LimbicCortex_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>152</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>176</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>164</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>152</x>
+						<y>160</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>176</x>
+						<y>144</y>
+					</min>
+					<max>
+						<x>192</x>
+						<y>144</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>SNCdop_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>CorticalArraySize,CorticalArraySize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>360</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>372</x>
+						<y>128</y>
+					</corner>
+					<corner>
+						<x>384</x>
+						<y>144</y>
+					</corner>
+					<corner>
+						<x>372</x>
+						<y>160</y>
+					</corner>
+					<corner>
+						<x>360</x>
+						<y>160</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>344</x>
+						<y>144</y>
+					</min>
+					<max>
+						<x>360</x>
+						<y>144</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment> SNC class
+ Represents the Substantia Nigra pars Compacta Layer
+ @see    SNC
+ @version 0.1 96/11/19
+ @author  Michael Crowley
+ -var private SNCdop_out - output going to CDlatburst and CDmedburst modules (of type NslDouble2)&lt;p&gt;</comment>
+		<methods>public void initRun () {
+    sncdoptm = 0.01;
+    SNCdopsigma1 = 0;
+    SNCdopsigma2 = 60;
+    SNCdopsigma3 = 0;
+    SNCdopsigma4 = 20; //10;
+  }
+
+  public void simRun () {
+  // System.err.println("@@@@ SNC simRun entered @@@@");
+    sncdop = nslDiff (sncdop,sncdoptm, 
+                          - sncdop + LimbicCortex_in);
+    SNCdop_out = Nsl2Sigmoid.eval (sncdop,SNCdopsigma1, SNCdopsigma2,
+                                 SNCdopsigma3, SNCdopsigma4);
+  }
+
+</methods>
+	</nslm>
+</module>

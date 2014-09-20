@@ -1,0 +1,970 @@
+<module>
+	<library>CrowleyModel</library>
+	<name>BSG</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int array_size</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>SCsac_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size, array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="InputPort">
+			<name>SCbu_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDinDouble2</type>
+			<params>array_size, array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>BSGsaccade_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDoutDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>BSGEyeMovement_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslDoutDouble1</type>
+			<params>2</params>
+			<inits></inits>
+			<comment>is in R^2</comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>BSGEye</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>BSGsac</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>array_size,array_size</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGSaccadeVector</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslDouble1</type>
+			<params>2</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>NINE</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>true</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>9</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CENTERX</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>true</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>4</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>CENTERY</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>true</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>4</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGemtm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGSaccadeVelocity</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsactm</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGscsacK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGscbuK</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SCsacmax</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>SCsacprevmax</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsacvel</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsacvelsigma1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsacvelsigma2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsacvelsigma3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>BSGsacvelsigma4</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Inhibition</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>Activation</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fovea</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>MaxCorticalFiring</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>true</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>90</inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>CrowleyModel</library>
+		<module>BSG</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>120</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>96</x>
+				<y>120</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>96</x>
+						<y>120</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>96</x>
+						<y>120</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>SCsac_in</name>
+				<parameters>array_size, array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>32</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>32</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>32</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>32</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble2">
+				<name>SCbu_in</name>
+				<parameters>array_size, array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>88</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>88</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>88</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>88</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble0">
+				<name>BSGsaccade_out</name>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble1">
+				<name>BSGEyeMovement_out</name>
+				<parameters>1</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>BSGEye</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>72</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>72</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>72</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>72</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>BSGsac</name>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>96</x>
+						<y>96</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>96</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>96</x>
+						<y>96</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>96</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>SCsac_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size, array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>208</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>220</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>208</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>232</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>248</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</inport>
+			<inport>
+				<name>SCbu_in</name>
+				<type>NslDinDouble2</type>
+				<parameters>array_size, array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>216</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>228</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>240</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>228</x>
+						<y>184</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>184</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>240</x>
+						<y>168</y>
+					</min>
+					<max>
+						<x>256</x>
+						<y>168</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>BSGsaccade_out</name>
+				<type>NslDoutDouble0</type>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>352</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>336</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>352</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>BSGEyeMovement_out</name>
+				<type>NslDoutDouble1</type>
+				<parameters>1</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>352</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>336</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>352</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>BSGEye</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>352</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>232</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>232</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>336</x>
+						<y>216</y>
+					</min>
+					<max>
+						<x>352</x>
+						<y>216</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>BSGsac</name>
+				<type>NslDoutDouble2</type>
+				<parameters>array_size,array_size</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>352</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>272</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>288</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>304</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>304</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>336</x>
+						<y>288</y>
+					</min>
+					<max>
+						<x>352</x>
+						<y>288</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment>Here is the class representing the Brainstem Saccade Generator (BSG) module.
+This is a completely non-neural module. It monitors (non-neurally) certain 
+conditions and triggers the saccade by setting BSGsaccade to 1 when a certain
+(see the ref.) contidion is met. The BSG module aslo extracts the velocity 
+and  direction information for a saccade.  The actuall ending of a saccade
+is also carried with BSG (again non-neurally)
+== Recordings of SC neurons (Sparks, 1986) have shown that saccades are 
+== initiated about the the time the peak in firing of the SRBNs accurs.
+M. Crowley: "Since our BSG is non-neural, we calculate directly when the
+activity from SC burst cell is declining. When this situation occurs, we
+extract the saccade vector and peak firing rate from SCsac and initiate a 
+saccade"</comment>
+		<methods>public void initRun()
+{
+	// Runmodule BrainstemSaccadeGenerator parameters
+	BSGemtm             =    0.01;
+	BSGSaccadeVelocity  =    0;
+	BSGEyeMovement_out  =    0;
+	BSGSaccadeVector    =    0;
+	BSGEye              =    0;
+
+	BSGsac              =    0;
+
+	BSGsactm            =    0.01;
+	BSGscbuK            =    1;
+	BSGscsacK           =    0.06;
+	SCsacmax            =    0;
+	SCsacprevmax        =    0;
+	BSGsaccade_out      =    0;
+
+	Inhibition = 0;
+	Activation = 0;
+	fovea = (double)SCbu_in[4][4];
+	
+	BSGsacvelsigma1     =    0;
+	BSGsacvelsigma2     = 1000;
+	BSGsacvelsigma3     =    10.0 * nslGetRunDelta();//SACCADE.get_delta();
+	BSGsacvelsigma4     =    20.0 * nslGetRunDelta();//SACCADE.get_delta();
+}
+
+public void simRun()
+{
+	double r;
+
+	/* @@@ */ 
+	//System.err.println("@@@@ BSG simRun entered @@@@");
+	fovea = (double)SCbu_in[4][4];
+  
+	r= fovea*BSGscsacK;
+	// System.err.println("@@@@ BSG simRun AA @@@@");
+	BSGsac=nslDiff(BSGsac,BSGsactm,-   BSGsac+ SCsac_in*BSGscsacK - fovea*BSGscbuK);
+	// System.err.println("@@@@ BSG simRun BB @@@@");
+	BSGsac.set(nslj.src.math.NslSaturation.eval( BSGsac,0,MaxCorticalFiring,0,MaxCorticalFiring)); 
+	//System.err.println("@@@@ BSG simRun CC @@@@");
+	SCsacmax = nslMaxValue(SCsac_in);
+	//System.err.println("@@@@ BSG simRun DD @@@@");
+
+	// System.out.println("BSG: SCsacmax "+SCsacmax +"\tSCsacprevmax "+ 
+	//	     SCsacprevmax+"\tBSGsaccade_out "+BSGsaccade_out+"\n"+SCsac_in);
+
+  
+	// System.err.println("@@@@ BSG: BSGsaccade_out:"+BSGsaccade_out);
+	if ((SCsacmax &lt; SCsacprevmax) &amp;&amp; (BSGsaccade_out.get() == 0.0) &amp;&amp; (SCsacmax &gt; 30.0)) 
+	{
+		BSGsaccade_out = 1;
+		// System.err.println("@@@@ BSG simRun EE @@@@");
+		BSGSaccadeVector = GetSaccadeVector(BSGsac);
+		// System.err.println("@@@@ BSG simRun FF @@@@");
+		BSGsacvel =0+ Nsl2Sigmoid.eval(SCsacmax,BSGsacvelsigma1,BSGsacvelsigma2, BSGsacvelsigma3, 
+						BSGsacvelsigma4);
+		// System.err.println("@@@@ BSG simRun GG @@@@");
+		SCsacmax     = 0;
+		SCsacprevmax = 0;  /* seems redundant... */
+	}
+	SCsacprevmax = SCsacmax;
+  
+	/**
+	 * == M. Crowley explains the factor 0.33 as: 
+	 * == "SCbu_in tends to max at 30 or above based on current model performance.  
+	 * ==  That is why we uses .033 for XXX???"
+	 */
+	Activation = fovea * .033;
+	if ( Activation &gt; 1 ) 
+		Activation = 1;
+	Inhibition = ( 1 - Activation ) * ( 1 - Activation );
+  
+	BSGEyeMovement_out=nslDiff(BSGEyeMovement_out,BSGemtm,-BSGEyeMovement_out + (BSGSaccadeVector * BSGsacvel * Inhibition));
+  
+	if ( Inhibition &lt;= 0.01 )
+	{
+		//      Saccade is over
+		BSGsaccade_out      = 0;
+		BSGSaccadeVector    = 0;
+		Inhibition          = 0;
+		BSGEyeMovement_out  = 0;
+		BSGsacvel           = 0;
+	}
+	/*  
+	//  Apply any movement of the eyes to the targets
+	EyeTargets = MakeTargets( RETINA );
+  
+	if ( EyeTargets != null )
+	{
+		//      Get target locations for target remapping of RETINA for
+		//      display purposes only
+      
+		EyeTargets.Move(BSGEyeMovement_out);
+      
+		//      Update the image on the retina
+		//        BSGEye = RETINA.get_sector(0,8,0,8);
+		//        BSGEye = MoveEye( EyeTargets, BSGEye );
+		//        RETINA = BSGEye.get_sector(0,8,0,8);
+	}
+	*/
+	// System.err.println("BSG: simRun finished!!!!!");
+} /* End of simRun() */
+
+public NslDouble1 GetSaccadeVector(NslDouble2 inmat2d) 
+{
+	/*
+	This function determines the amplitude and direction (vector)
+	of a saccade by determining the centroid of the activity in the input matrix.
+	This is accomplished by:
+	    (1)Calculating the SUM of all activity in inmat.
+	    (2)Dividing all matrix elements by the sum in step 1 and multiplying by
+	       the array element indices.  This creates the saccade vector as the
+	       normalized sum of all activity in the input matrix.
+	It returns the x,y components of the calculated saccade vector.
+	*/
+ 
+	double[][] inmat = inmat2d.get();
+	int size1 = inmat.length;
+	int size2 = inmat[0].length;
+	int half1 = size1/2;
+	int half2 = size2/2;
+	// 99/8/4 aa: was : double SCsum=nslSum(inmat2d);
+
+	double SCsum;
+	SCsum = nslSum(inmat2d);
+	//99/8/3 aa:    NslDouble1 temp1d = new NslDouble1(2);
+	NslDouble1 temp1d(2);
+	double[] temp = temp1d.get();
+    
+	if(SCsum==0) 
+	{
+		temp[0]=temp[1]=0;
+	}
+	else 
+	{
+		for(int i=0; i&lt;size1; i++) 
+			for(int j=0; j&lt;size2; j++) 
+				if(inmat[i][j]&gt;0)
+				{
+					temp[0]=inmat[i][j]*(i-half1)/SCsum;
+					temp[1]=inmat[i][j]*(j-half2)/SCsum;
+				}
+	}
+	return temp1d;
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>

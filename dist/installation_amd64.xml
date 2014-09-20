@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<installation version="1.0">
+    <info>
+        <appname>Schematic Capture System (SCS)</appname>
+        <appversion>2.2</appversion>
+        <appsubpath>USCBP/SCS</appsubpath>
+        <url>http://nsl.usc.edu</url>
+        <authors>
+            <author name="Amanda Alexander" email=""/>
+            <author name="Weifang Xie" email=""/>
+            <author name="Nitin Gupta" email=""/>
+            <author name="James Bonaiuto" email="bonaiuto@usc.edu"/>
+            <author name="Cheol Han" email=""/>
+            <author name="Matt Mehne" email=""/>
+            <author name="Robert Schuler" email=""/>
+        </authors>
+        <javaversion>1.5</javaversion>
+    </info>
+    <guiprefs width="650" height="480" resizable="no"/>
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+    <variables>
+        <variable name="DesktopShortcutCheckboxEnabled" value="true" />
+    </variables>
+    <resources>
+        <res id="InfoPanel.info" src="../doc/readme.txt"/>
+        <res id="LicencePanel.licence" src="../License.txt"/>
+        <res id="Installer.image.0" src="../resources/scs_logo_sideways.png"/>
+        <res src="shortcutSpec.xml" id="shortcutSpec.xml"/>
+        <res src="Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml"/>
+    </resources>
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="ShortcutPanel" />
+        <panel classname="SimpleFinishPanel"/>
+    </panels>
+    <packs>
+        <!-- The core files -->
+        <pack name="Core" required="yes">
+            <description>The SCS core files.</description>
+            <file targetdir="$INSTALL_PATH/bin" src="../bin/scs.jar"/>
+            <file targetdir="$INSTALL_PATH/bin" src="../bin/scs.bat" os="windows"/>
+            <file targetdir="$INSTALL_PATH/bin" src="../bin/scs.sh" os="unix"/>
+            <file targetdir="$INSTALL_PATH/bin" src="../bin/uninstall.bat" os="windows"/>
+            <file targetdir="$INSTALL_PATH/bin" src="../bin/uninstall.sh" os="unix"/>
+            <fileset targetdir="$INSTALL_PATH/lib" dir="../lib">
+                <include name="*.jar"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/lib" dir="../lib/ext">
+                <include name="*.jar"/>
+                <exclude name="standalone-compiler.jar"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/lib" dir="../lib/ext">
+                <include name="com"/>
+                <include name="com/*"/>
+                <include name="com/oroinc/*"/>
+                <include name="com/oroinc/text/*"/>
+                <include name="com/oroinc/text/regex/*"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/lib" dir="../lib/amd64/linux" os="unix">
+                <include name="*.so"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/lib" dir="../lib/amd64/windows" os="windows">
+                <include name="*.dll"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/lib/@NslModule" dir="../lib/@NslModule">
+                <include name="*"/>
+            </fileset>
+            <file targetdir="$INSTALL_PATH" src="../build.xml"/>
+            <file targetdir="$INSTALL_PATH" src="../License.txt"/>
+            <file targetdir="$INSTALL_PATH/trash" src="../trash/trash"/>
+            <fileset targetdir="$INSTALL_PATH/resources" dir="../resources">
+                <include name="*"/>
+                <include name="maps/*"/>
+                <include name="textures/*"/>
+                <include name="sounds/*"/>
+                <exclude name=".svn"/>
+            </fileset>
+            <fileset targetdir="$INSTALL_PATH/data" dir="../data">
+                <include name=".data"/>
+                <exclude name=".svn"/>
+            </fileset>
+            <fileset targetdir="$USER_HOME/.scs" dir="../.scs">
+                <include name="*"/>
+            </fileset>
+            <parsable targetfile="$INSTALL_PATH/bin/scs.bat" os="windows"/>
+            <parsable targetfile="$INSTALL_PATH/bin/scs.sh" os="unix" type="shell"/>
+            <executable targetfile="$INSTALL_PATH/bin/scs.sh" os="unix"/>
+            <parsable targetfile="$USER_HOME/.scs/SCS_PREFERENCES"/>
+            <parsable targetfile="$USER_HOME/.scs/SCS_LIBRARY_PATHS"/>
+            <parsable targetfile="$INSTALL_PATH/bin/uninstall.bat" os="windows"/>
+            <parsable targetfile="$INSTALL_PATH/bin/uninstall.sh" os="unix" type="shell"/>
+            <executable targetfile="$INSTALL_PATH/bin/uninstall.sh" os="unix"/>
+        </pack>
+        <!-- The src files -->
+        <pack name="Source" required="no">
+            <description>The SCS source files.</description>
+            <fileset targetdir="$INSTALL_PATH/src" dir="../src">
+                <include name="scs"/>
+                <include name="scs/*"/>
+                <include name="scs/graphics/*"/>
+                <include name="scs/tool/*"/>
+                <include name="scs/ui/*"/>
+                <include name="scs/util/*"/>
+                <exclude name=".svn"/>
+            </fileset>
+        </pack>
+        <!-- The documentation -->
+        <pack name="Documentation" required="no">
+            <description>The SCS documentation (HTML and PDF)</description>
+            <fileset targetdir="$INSTALL_PATH/doc" dir="../doc">
+                <include name="*"/>
+                <exclude name=".svn"/>
+            </fileset>
+        </pack>
+        <!-- The sample models -->
+        <pack name="Sample Models" required="no">
+            <description>Sample NSL models implemented in SCS</description>
+            <fileset targetdir="$INSTALL_PATH/nsl_models" dir="../nsl_models">
+                <include name="*"/>
+                <include name="BackPropModel/*"/>
+                <include name="BackPropModel/BackPropLayers/*"/>
+                <include name="BackPropModel/BackPropLayers/v1_1_1/*"/>
+                <include name="BackPropModel/BackPropLayers/v1_1_1/src/*"/>
+                <include name="BackPropModel/BackPropModel/*"/>
+                <include name="BackPropModel/BackPropModel/v1_1_1/*"/>
+                <include name="BackPropModel/BackPropModel/v1_1_1/src/*"/>
+                <include name="BackPropModel/BackPropModel/v1_1_1/io/*"/>
+                <include name="BackPropModel/BackPropOutput/*"/>
+                <include name="BackPropModel/BackPropOutput/v1_1_1/*"/>
+                <include name="BackPropModel/BackPropOutput/v1_1_1/src/*"/>
+                <include name="BackPropModel/BPBackward/*"/>
+                <include name="BackPropModel/BPBackward/v1_1_1/*"/>
+                <include name="BackPropModel/BPBackward/v1_1_1/src/*"/>
+                <include name="BackPropModel/BPBackwardError/*"/>
+                <include name="BackPropModel/BPBackwardError/v1_1_1/*"/>
+                <include name="BackPropModel/BPBackwardError/v1_1_1/src/*"/>
+                <include name="BackPropModel/BPBackwardProp/*"/>
+                <include name="BackPropModel/BPBackwardProp/v1_1_1/*"/>
+                <include name="BackPropModel/BPBackwardProp/v1_1_1/src/*"/>
+                <include name="BackPropModel/BPForward/*"/>
+                <include name="BackPropModel/BPForward/v1_1_1/*"/>
+                <include name="BackPropModel/BPForward/v1_1_1/src/*"/>
+                <include name="BackPropModel/TrainManager/*"/>
+                <include name="BackPropModel/TrainManager/v1_1_1/*"/>
+                <include name="BackPropModel/TrainManager/v1_1_1/src/*"/>
+                <include name="HopfieldModel/*"/>
+                <include name="HopfieldModel/HopfieldIn/*"/>
+                <include name="HopfieldModel/HopfieldIn/v1_1_1/*"/>
+                <include name="HopfieldModel/HopfieldIn/v1_1_1/src/*"/>
+                <include name="HopfieldModel/HopfieldModel/*"/>
+                <include name="HopfieldModel/HopfieldModel/v1_1_1/*"/>
+                <include name="HopfieldModel/HopfieldModel/v1_1_1/src/*"/>
+                <include name="HopfieldModel/HopfieldModel/v1_1_1/io/*"/>
+                <include name="HopfieldModel/HopfieldNetwork/*"/>
+                <include name="HopfieldModel/HopfieldNetwork/v1_1_1/*"/>
+                <include name="HopfieldModel/HopfieldNetwork/v1_1_1/src/*"/>
+                <include name="HopfieldModel/HopfieldOut/*"/>
+                <include name="HopfieldModel/HopfieldOut/v1_1_1/*"/>
+                <include name="HopfieldModel/HopfieldOut/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/*"/>
+                <include name="MaxSelectorModel/MaxSelector/*"/>
+                <include name="MaxSelectorModel/MaxSelector/v1_1_1/*"/>
+                <include name="MaxSelectorModel/MaxSelector/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/MaxSelectorModel/*"/>
+                <include name="MaxSelectorModel/MaxSelectorModel/v1_1_1/*"/>
+                <include name="MaxSelectorModel/MaxSelectorModel/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/MaxSelectorOutput/*"/>
+                <include name="MaxSelectorModel/MaxSelectorOutput/v1_1_1/*"/>
+                <include name="MaxSelectorModel/MaxSelectorOutput/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/MaxSelectorStimulus/*"/>
+                <include name="MaxSelectorModel/MaxSelectorStimulus/v1_1_1/*"/>
+                <include name="MaxSelectorModel/MaxSelectorStimulus/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/Ulayer/*"/>
+                <include name="MaxSelectorModel/Ulayer/v1_1_1/*"/>
+                <include name="MaxSelectorModel/Ulayer/v1_1_1/src/*"/>
+                <include name="MaxSelectorModel/Vlayer/*"/>
+                <include name="MaxSelectorModel/Vlayer/v1_1_1/*"/>
+                <include name="MaxSelectorModel/Vlayer/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelector/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelector/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelector/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorModel/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorModel/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorModel/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorOutput/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorOutput/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorOutput/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorStimulus/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorStimulus/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MaxSelectorStimulus/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/MUlayer/*"/>
+                <include name="MaxSelectorModelMatlab/MUlayer/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MUlayer/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/@MUlayer/*"/>
+                <include name="MaxSelectorModelMatlab/MVlayer/*"/>
+                <include name="MaxSelectorModelMatlab/MVlayer/v1_1_1/*"/>
+                <include name="MaxSelectorModelMatlab/MVlayer/v1_1_1/src/*"/>
+                <include name="MaxSelectorModelMatlab/@MVlayer/*"/>
+                <include name="MaxSelectorModelMatlab/@NslModule/*"/>
+                <include name="CrowleyModel/*"/>
+                <include name="CrowleyModel/BSG/*"/>
+                <include name="CrowleyModel/BSG/v1_1_1/*"/>
+                <include name="CrowleyModel/BSG/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDlatburst/*"/>
+                <include name="CrowleyModel/CDlatburst/v1_1_1/*"/>
+                <include name="CrowleyModel/CDlatburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDlatinh/*"/>
+                <include name="CrowleyModel/CDlatinh/v1_1_1/*"/>
+                <include name="CrowleyModel/CDlatinh/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDlattan/*"/>
+                <include name="CrowleyModel/CDlattan/v1_1_1/*"/>
+                <include name="CrowleyModel/CDlattan/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDmedburst/*"/>
+                <include name="CrowleyModel/CDmedburst/v1_1_1/*"/>
+                <include name="CrowleyModel/CDmedburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDmedinh/*"/>
+                <include name="CrowleyModel/CDmedinh/v1_1_1/*"/>
+                <include name="CrowleyModel/CDmedinh/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CDmedtan/*"/>
+                <include name="CrowleyModel/CDmedtan/v1_1_1/*"/>
+                <include name="CrowleyModel/CDmedtan/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CrowleyModel/*"/>
+                <include name="CrowleyModel/CrowleyModel/v1_1_1/*"/>
+                <include name="CrowleyModel/CrowleyModel/v1_1_1/src/*"/>
+                <include name="CrowleyModel/CrowleyOut/*"/>
+                <include name="CrowleyModel/CrowleyOut/v1_1_1/*"/>
+                <include name="CrowleyModel/CrowleyOut/v1_1_1/src/*"/>
+                <include name="CrowleyModel/DoubleSaccade/*"/>
+                <include name="CrowleyModel/DoubleSaccade/v1_1_1/*"/>
+                <include name="CrowleyModel/DoubleSaccade/v1_1_1/src/*"/>
+                <include name="CrowleyModel/_Element/*"/>
+                <include name="CrowleyModel/_Element/v1_1_1/*"/>
+                <include name="CrowleyModel/_Element/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Element/*"/>
+                <include name="CrowleyModel/Element/v1_1_1/*"/>
+                <include name="CrowleyModel/Element/v1_1_1/src/*"/>
+                <include name="CrowleyModel/FEF/*"/>
+                <include name="CrowleyModel/FEF/v1_1_1/*"/>
+                <include name="CrowleyModel/FEF/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Func/*"/>
+                <include name="CrowleyModel/Func/v1_1_1/*"/>
+                <include name="CrowleyModel/Func/v1_1_1/src/*"/>
+                <include name="CrowleyModel/GapSaccade/*"/>
+                <include name="CrowleyModel/GapSaccade/v1_1_1/*"/>
+                <include name="CrowleyModel/GapSaccade/v1_1_1/src/*"/>
+                <include name="CrowleyModel/GPElatburst/*"/>
+                <include name="CrowleyModel/GPElatburst/v1_1_1/*"/>
+                <include name="CrowleyModel/GPElatburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/GPEmedburst/*"/>
+                <include name="CrowleyModel/GPEmedburst/v1_1_1/*"/>
+                <include name="CrowleyModel/GPEmedburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/IJpair/*"/>
+                <include name="CrowleyModel/IJpair/v1_1_1/*"/>
+                <include name="CrowleyModel/IJpair/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Illumination/*"/>
+                <include name="CrowleyModel/Illumination/v1_1_1/*"/>
+                <include name="CrowleyModel/Illumination/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Illuminations/*"/>
+                <include name="CrowleyModel/Illuminations/v1_1_1/*"/>
+                <include name="CrowleyModel/Illuminations/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Lat/*"/>
+                <include name="CrowleyModel/Lat/v1_1_1/*"/>
+                <include name="CrowleyModel/Lat/v1_1_1/src/*"/>
+                <include name="CrowleyModel/LC/*"/>
+                <include name="CrowleyModel/LC/v1_1_1/*"/>
+                <include name="CrowleyModel/LC/v1_1_1/src/*"/>
+                <include name="CrowleyModel/LIP/*"/>
+                <include name="CrowleyModel/LIP/v1_1_1/*"/>
+                <include name="CrowleyModel/LIP/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Med/*"/>
+                <include name="CrowleyModel/Med/v1_1_1/*"/>
+                <include name="CrowleyModel/Med/v1_1_1/src/*"/>
+                <include name="CrowleyModel/MedBulk/*"/>
+                <include name="CrowleyModel/MedBulk/v1_1_1/*"/>
+                <include name="CrowleyModel/MedBulk/v1_1_1/src/*"/>
+                <include name="CrowleyModel/PFC/*"/>
+                <include name="CrowleyModel/PFC/v1_1_1/*"/>
+                <include name="CrowleyModel/PFC/v1_1_1/src/*"/>
+                <include name="CrowleyModel/PFCfovea/*"/>
+                <include name="CrowleyModel/PFCfovea/v1_1_1/*"/>
+                <include name="CrowleyModel/PFCfovea/v1_1_1/src/*"/>
+                <include name="CrowleyModel/PFCgo/*"/>
+                <include name="CrowleyModel/PFCgo/v1_1_1/*"/>
+                <include name="CrowleyModel/PFCgo/v1_1_1/src/*"/>
+                <include name="CrowleyModel/PFCmem/*"/>
+                <include name="CrowleyModel/PFCmem/v1_1_1/*"/>
+                <include name="CrowleyModel/PFCmem/v1_1_1/src/*"/>
+                <include name="CrowleyModel/PFCseq/*"/>
+                <include name="CrowleyModel/PFCseq/v1_1_1/*"/>
+                <include name="CrowleyModel/PFCseq/v1_1_1/src/*"/>
+                <include name="CrowleyModel/RNMEDinh/*"/>
+                <include name="CrowleyModel/RNMEDinh/v1_1_1/*"/>
+                <include name="CrowleyModel/RNMEDinh/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SaccadeParameterPlot/*"/>
+                <include name="CrowleyModel/SaccadeParameterPlot/v1_1_1/*"/>
+                <include name="CrowleyModel/SaccadeParameterPlot/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SaccadeTargetDurations/*"/>
+                <include name="CrowleyModel/SaccadeTargetDurations/v1_1_1/*"/>
+                <include name="CrowleyModel/SaccadeTargetDurations/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SaccadeTargetLocations/*"/>
+                <include name="CrowleyModel/SaccadeTargetLocations/v1_1_1/*"/>
+                <include name="CrowleyModel/SaccadeTargetLocations/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SC/*"/>
+                <include name="CrowleyModel/SC/v1_1_1/*"/>
+                <include name="CrowleyModel/SC/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SCbu/*"/>
+                <include name="CrowleyModel/SCbu/v1_1_1/*"/>
+                <include name="CrowleyModel/SCbu/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SCqv/*"/>
+                <include name="CrowleyModel/SCqv/v1_1_1/*"/>
+                <include name="CrowleyModel/SCqv/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SCsac/*"/>
+                <include name="CrowleyModel/SCsac/v1_1_1/*"/>
+                <include name="CrowleyModel/SCsac/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SNC/*"/>
+                <include name="CrowleyModel/SNC/v1_1_1/*"/>
+                <include name="CrowleyModel/SNC/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SNRlatburst/*"/>
+                <include name="CrowleyModel/SNRlatburst/v1_1_1/*"/>
+                <include name="CrowleyModel/SNRlatburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/SNRmedburst/*"/>
+                <include name="CrowleyModel/SNRmedburst/v1_1_1/*"/>
+                <include name="CrowleyModel/SNRmedburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/STNlatburst/*"/>
+                <include name="CrowleyModel/STNlatburst/v1_1_1/*"/>
+                <include name="CrowleyModel/STNlatburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/STNmedburst/*"/>
+                <include name="CrowleyModel/STNmedburst/v1_1_1/*"/>
+                <include name="CrowleyModel/STNmedburst/v1_1_1/src/*"/>
+                <include name="CrowleyModel/_Target/*"/>
+                <include name="CrowleyModel/_Target/v1_1_1/*"/>
+                <include name="CrowleyModel/_Target/v1_1_1/src/*"/>
+                <include name="CrowleyModel/Thal/*"/>
+                <include name="CrowleyModel/Thal/v1_1_1/*"/>
+                <include name="CrowleyModel/Thal/v1_1_1/src/*"/>
+                <include name="CrowleyModel/ThFEFmem/*"/>
+                <include name="CrowleyModel/ThFEFmem/v1_1_1/*"/>
+                <include name="CrowleyModel/ThFEFmem/v1_1_1/src/*"/>
+                <include name="CrowleyModel/ThLIPmem/*"/>
+                <include name="CrowleyModel/ThLIPmem/v1_1_1/*"/>
+                <include name="CrowleyModel/ThLIPmem/v1_1_1/src/*"/>
+                <include name="CrowleyModel/ThMEDlcn/*"/>
+                <include name="CrowleyModel/ThMEDlcn/v1_1_1/*"/>
+                <include name="CrowleyModel/ThMEDlcn/v1_1_1/src/*"/>
+                <include name="CrowleyModel/ThPFCmem/*"/>
+                <include name="CrowleyModel/ThPFCmem/v1_1_1/*"/>
+                <include name="CrowleyModel/ThPFCmem/v1_1_1/src/*"/>
+                <include name="CrowleyModel/VISINPUT/*"/>
+                <include name="CrowleyModel/VISINPUT/v1_1_1/*"/>
+                <include name="CrowleyModel/VISINPUT/v1_1_1/src/*"/>
+                <include name="DartModel/*"/>
+                <include name="DartModel/CEREB_module/*"/>
+                <include name="DartModel/CEREB_module/v1_1_1/*"/>
+                <include name="DartModel/CEREB_module/v1_1_1/src/*"/>
+                <include name="DartModel/DartModel/*"/>
+                <include name="DartModel/DartModel/v1_1_1/*"/>
+                <include name="DartModel/DartModel/v1_1_1/src/*"/>
+                <include name="DartModel/DART_out/*"/>
+                <include name="DartModel/DART_out/v1_1_1/*"/>
+                <include name="DartModel/DART_out/v1_1_1/src/*"/>
+                <include name="DartModel/DART_UI_module/*"/>
+                <include name="DartModel/DART_UI_module/v1_1_1/*"/>
+                <include name="DartModel/DART_UI_module/v1_1_1/src/*"/>
+                <include name="DartModel/FCX_layer/*"/>
+                <include name="DartModel/FCX_layer/v1_1_1/*"/>
+                <include name="DartModel/FCX_layer/v1_1_1/src/*"/>
+                <include name="DartModel/GC_layer/*"/>
+                <include name="DartModel/GC_layer/v1_1_1/*"/>
+                <include name="DartModel/GC_layer/v1_1_1/src/*"/>
+                <include name="DartModel/IO_layer/*"/>
+                <include name="DartModel/IO_layer/v1_1_1/*"/>
+                <include name="DartModel/IO_layer/v1_1_1/src/*"/>
+                <include name="DartModel/NslDartGraphCanvas/*"/>
+                <include name="DartModel/NslDartGraphCanvas/v1_1_1/*"/>
+                <include name="DartModel/NslDartGraphCanvas/v1_1_1/src/*"/>
+                <include name="DartModel/NUC_layer/*"/>
+                <include name="DartModel/NUC_layer/v1_1_1/*"/>
+                <include name="DartModel/NUC_layer/v1_1_1/src/*"/>
+                <include name="DartModel/PC_layer/*"/>
+                <include name="DartModel/PC_layer/v1_1_1/*"/>
+                <include name="DartModel/PC_layer/v1_1_1/src/*"/>
+                <include name="DartModel/PP_layer/*"/>
+                <include name="DartModel/PP_layer/v1_1_1/*"/>
+                <include name="DartModel/PP_layer/v1_1_1/src/*"/>
+                <include name="DartModel/SENS_layer/*"/>
+                <include name="DartModel/SENS_layer/v1_1_1/*"/>
+                <include name="DartModel/SENS_layer/v1_1_1/src/*"/>
+                <include name="DartModel/THROW_layer/*"/>
+                <include name="DartModel/THROW_layer/v1_1_1/*"/>
+                <include name="DartModel/THROW_layer/v1_1_1/src/*"/>
+                <include name="DomineyModel/*"/>
+                <include name="DomineyModel/BasalGanglia/*"/>
+                <include name="DomineyModel/BasalGanglia/v1_1_1/*"/>
+                <include name="DomineyModel/BasalGanglia/v1_1_1/src/*"/>
+                <include name="DomineyModel/BrainStem/*"/>
+                <include name="DomineyModel/BrainStem/v1_1_1/*"/>
+                <include name="DomineyModel/BrainStem/v1_1_1/src/*"/>
+                <include name="DomineyModel/Bursters/*"/>
+                <include name="DomineyModel/Bursters/v1_1_1/*"/>
+                <include name="DomineyModel/Bursters/v1_1_1/src/*"/>
+                <include name="DomineyModel/Caudate/*"/>
+                <include name="DomineyModel/Caudate/v1_1_1/*"/>
+                <include name="DomineyModel/Caudate/v1_1_1/src/*"/>
+                <include name="DomineyModel/DomineyLib/*"/>
+                <include name="DomineyModel/DomineyLib/v1_1_1/*"/>
+                <include name="DomineyModel/DomineyLib/v1_1_1/src/*"/>
+                <include name="DomineyModel/DomineyModel/*"/>
+                <include name="DomineyModel/DomineyModel/v1_1_1/*"/>
+                <include name="DomineyModel/DomineyModel/v1_1_1/src/*"/>
+                <include name="DomineyModel/DomineyOutDisplay/*"/>
+                <include name="DomineyModel/DomineyOutDisplay/v1_1_1/*"/>
+                <include name="DomineyModel/DomineyOutDisplay/v1_1_1/src/*"/>
+                <include name="DomineyModel/EBN/*"/>
+                <include name="DomineyModel/EBN/v1_1_1/*"/>
+                <include name="DomineyModel/EBN/v1_1_1/src/*"/>
+                <include name="DomineyModel/Erasure2/*"/>
+                <include name="DomineyModel/Erasure2/v1_1_1/*"/>
+                <include name="DomineyModel/Erasure2/v1_1_1/src/*"/>
+                <include name="DomineyModel/EyePositionAndVelocity/*"/>
+                <include name="DomineyModel/EyePositionAndVelocity/v1_1_1/*"/>
+                <include name="DomineyModel/EyePositionAndVelocity/v1_1_1/src/*"/>
+                <include name="DomineyModel/FEF/*"/>
+                <include name="DomineyModel/FEF/v1_1_1/*"/>
+                <include name="DomineyModel/FEF/v1_1_1/src/*"/>
+                <include name="DomineyModel/FON/*"/>
+                <include name="DomineyModel/FON/v1_1_1/*"/>
+                <include name="DomineyModel/FON/v1_1_1/src/*"/>
+                <include name="DomineyModel/LLBN/*"/>
+                <include name="DomineyModel/LLBN/v1_1_1/*"/>
+                <include name="DomineyModel/LLBN/v1_1_1/src/*"/>
+                <include name="DomineyModel/MLBN/*"/>
+                <include name="DomineyModel/MLBN/v1_1_1/*"/>
+                <include name="DomineyModel/MLBN/v1_1_1/src/*"/>
+                <include name="DomineyModel/MN/*"/>
+                <include name="DomineyModel/MN/v1_1_1/*"/>
+                <include name="DomineyModel/MN/v1_1_1/src/*"/>
+                <include name="DomineyModel/Motor/*"/>
+                <include name="DomineyModel/Motor/v1_1_1/*"/>
+                <include name="DomineyModel/Motor/v1_1_1/src/*"/>
+                <include name="DomineyModel/Pause/*"/>
+                <include name="DomineyModel/Pause/v1_1_1/*"/>
+                <include name="DomineyModel/Pause/v1_1_1/src/*"/>
+                <include name="DomineyModel/PPQV/*"/>
+                <include name="DomineyModel/PPQV/v1_1_1/*"/>
+                <include name="DomineyModel/PPQV/v1_1_1/src/*"/>
+                <include name="DomineyModel/Retina/*"/>
+                <include name="DomineyModel/Retina/v1_1_1/*"/>
+                <include name="DomineyModel/Retina/v1_1_1/src/*"/>
+                <include name="DomineyModel/SC/*"/>
+                <include name="DomineyModel/SC/v1_1_1/*"/>
+                <include name="DomineyModel/SC/v1_1_1/src/*"/>
+                <include name="DomineyModel/SNR/*"/>
+                <include name="DomineyModel/SNR/v1_1_1/*"/>
+                <include name="DomineyModel/SNR/v1_1_1/src/*"/>
+                <include name="DomineyModel/StimFEF/*"/>
+                <include name="DomineyModel/StimFEF/v1_1_1/*"/>
+                <include name="DomineyModel/StimFEF/v1_1_1/src/*"/>
+                <include name="DomineyModel/StimSC/*"/>
+                <include name="DomineyModel/StimSC/v1_1_1/*"/>
+                <include name="DomineyModel/StimSC/v1_1_1/src/*"/>
+                <include name="DomineyModel/STM/*"/>
+                <include name="DomineyModel/STM/v1_1_1/*"/>
+                <include name="DomineyModel/STM/v1_1_1/src/*"/>
+                <include name="DomineyModel/Thalamus/*"/>
+                <include name="DomineyModel/Thalamus/v1_1_1/*"/>
+                <include name="DomineyModel/Thalamus/v1_1_1/src/*"/>
+                <include name="DomineyModel/TNChange/*"/>
+                <include name="DomineyModel/TNChange/v1_1_1/*"/>
+                <include name="DomineyModel/TNChange/v1_1_1/src/*"/>
+                <include name="DomineyModel/TNDelta/*"/>
+                <include name="DomineyModel/TNDelta/v1_1_1/*"/>
+                <include name="DomineyModel/TNDelta/v1_1_1/src/*"/>
+                <include name="DomineyModel/VisCortex/*"/>
+                <include name="DomineyModel/VisCortex/v1_1_1/*"/>
+                <include name="DomineyModel/VisCortex/v1_1_1/src/*"/>
+                <include name="DomineyModel/VisualInput/*"/>
+                <include name="DomineyModel/VisualInput/v1_1_1/*"/>
+                <include name="DomineyModel/VisualInput/v1_1_1/src/*"/>
+                <exclude name=".svn"/>
+                <exclude name="*.sbk"/>
+                <exclude name="*.mbk"/>
+            </fileset>
+        </pack>
+    </packs>
+
+    <!-- The native libraries to add -->
+    <native type="izpack" name="ShellLink.dll" />
+</installation>

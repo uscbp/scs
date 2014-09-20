@@ -1,0 +1,311 @@
+<module>
+	<library>DartModel</library>
+	<name>FCX_layer</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments></arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="InputPort">
+			<name>p_in</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDinDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDinDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment>Prism angle [0:30]</comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>E</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>fcx_out</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutDouble</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutDouble2</type>
+			<params>10,4</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sx2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>100</inits>
+			<comment>10*10</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>sy2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>2.25</inits>
+			<comment>1.5*1.5</comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>fcx_noise</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDouble</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslDouble0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DartModel</library>
+		<module>FCX_layer</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>144</x>
+				<y>48</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>24</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>120</x>
+				<y>48</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>24</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>120</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>24</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>120</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDinDouble0">
+				<name>p_in</name>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<signalType>E</signalType>
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>24</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>24</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutDouble2">
+				<name>fcx_out</name>
+				<parameters>10,4</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>120</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>144</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>120</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>144</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+			<inport>
+				<name>p_in</name>
+				<type>NslDinDouble0</type>
+				<parameters></parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>144</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>156</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>168</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>156</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>144</x>
+						<y>64</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>168</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>184</x>
+						<y>48</y>
+					</max>
+				</bounds>
+			</inport>
+		</inports>
+		<outports>
+			<outport>
+				<name>fcx_out</name>
+				<type>NslDoutDouble2</type>
+				<parameters>10,4</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>264</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>32</y>
+					</corner>
+					<corner>
+						<x>288</x>
+						<y>48</y>
+					</corner>
+					<corner>
+						<x>276</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>264</x>
+						<y>64</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>248</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>264</x>
+						<y>48</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule()
+{
+	fcx_out=0.;
+	fcx_noise=(NslDouble0)nslGetValue("dartModel.fcx_noise");
+}
+   
+public void simTrain() 
+{
+	simRun();
+}  
+ 
+public void simRun()
+{
+	int i,j;
+	NslDouble0 mx(), my(), dx(), dy();
+     
+	mx = 1. + 9.*p_in/50.;
+	my = 1.5;
+     
+	for(i=0;i&lt;10;i++)
+	{
+		dx = mx-i;
+		for(j=0;j&lt;4;j++)
+		{
+			dy = my - j;
+			fcx_out[i][j] = fcx_noise * nslRandom() + (1.-fcx_noise)*nslExp(-1.*(dx*dx/sx2 + dy*dy/sy2));
+		}
+	}
+}
+
+
+</methods>
+	</nslm>
+</module>

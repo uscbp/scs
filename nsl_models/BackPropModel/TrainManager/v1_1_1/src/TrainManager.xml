@@ -1,0 +1,297 @@
+<module>
+	<library>BackPropModel</library>
+	<name>TrainManager</name>
+	<version>1_1_1</version>
+	<type>NslJavaModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int nPats, int inSize, int outSize</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>dInput</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslDoutFloat1</type>
+			<params>inSize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>dOutput</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslDoutFloat1</type>
+			<params>outSize</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pInput</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>nPats, inSize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>pOutput</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslFloat2</type>
+			<params>nPats, outSize</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>counter</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>BackPropModel</library>
+		<module>TrainManager</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>128</x>
+				<y>56</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>56</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="NslDoutFloat1">
+				<name>dInput</name>
+				<parameters>inSize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat1">
+				<name>dOutput</name>
+				<parameters>outSize</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>104</x>
+						<y>40</y>
+					</min>
+					<max>
+						<x>128</x>
+						<y>40</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>104</x>
+						<y>40</y>
+					</coordinate>
+					<coordinate>
+						<x>128</x>
+						<y>40</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-1</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>dInput</name>
+				<type>NslDoutFloat1</type>
+				<parameters>inSize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>352</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>376</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>364</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>352</x>
+						<y>136</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>336</x>
+						<y>120</y>
+					</min>
+					<max>
+						<x>352</x>
+						<y>120</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>dOutput</name>
+				<type>NslDoutFloat1</type>
+				<parameters>outSize</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>360</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>372</x>
+						<y>200</y>
+					</corner>
+					<corner>
+						<x>384</x>
+						<y>216</y>
+					</corner>
+					<corner>
+						<x>372</x>
+						<y>232</y>
+					</corner>
+					<corner>
+						<x>360</x>
+						<y>232</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>344</x>
+						<y>216</y>
+					</min>
+					<max>
+						<x>360</x>
+						<y>216</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initModule()
+{
+	pInput.nslSetAccess('W');
+	pOutput.nslSetAccess('W');
+	nslAddAreaCanvas("backPropOut", "input", dInput, 0.0, 1.0);
+	nslAddAreaCanvas("backPropOut", "desired", dOutput, 0.0, 1.0);
+}
+
+public void simTrain() 
+{
+	counter++;
+	int pat = counter%nPats;
+	dInput = pInput[pat];
+	dOutput = pOutput[pat];
+}
+
+
+</methods>
+	</nslm>
+</module>

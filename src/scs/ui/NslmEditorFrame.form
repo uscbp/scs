@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="scs.ui.NslmEditorFrame">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="794" height="509"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="492ac" default-binding="true">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="0.1" weighty="0.1"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="97a75" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="Main"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="c6d0d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Library Name:"/>
+                </properties>
+              </component>
+              <hspacer id="f6a64">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="6a3df" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Library Path:"/>
+                </properties>
+              </component>
+              <component id="6b5fa" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Imports:"/>
+                </properties>
+              </component>
+              <component id="9e18c" class="javax.swing.JButton" binding="addImportButton">
+                <constraints>
+                  <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Add Import"/>
+                </properties>
+              </component>
+              <component id="d892e" class="javax.swing.JButton" binding="removeImportButton">
+                <constraints>
+                  <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <enabled value="false"/>
+                  <text value="Remove Import"/>
+                </properties>
+              </component>
+              <component id="a2b9e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Name:"/>
+                </properties>
+              </component>
+              <component id="8b8bd" class="javax.swing.JLabel" binding="classNameLabel">
+                <constraints>
+                  <grid row="6" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Name"/>
+                </properties>
+              </component>
+              <component id="be2dc" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Version:"/>
+                </properties>
+              </component>
+              <component id="5be21" class="javax.swing.JLabel" binding="classVersionLabel">
+                <constraints>
+                  <grid row="7" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Version"/>
+                </properties>
+              </component>
+              <component id="50e4c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Type:"/>
+                </properties>
+              </component>
+              <component id="cf2e4" class="javax.swing.JComboBox" binding="classTypeSelect">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="4d37b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Class Arguments:"/>
+                </properties>
+              </component>
+              <scrollpane id="ba3e7" binding="importsScrollPane">
+                <constraints>
+                  <grid row="3" column="2" row-span="3" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.01" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <horizontalScrollBarPolicy value="32"/>
+                  <verticalScrollBarPolicy value="22"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </scrollpane>
+              <component id="5adcb" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Superclass:"/>
+                </properties>
+              </component>
+              <component id="4064" class="javax.swing.JTextField" binding="superClassText">
+                <constraints>
+                  <grid row="10" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="1282b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Superclass Parameters:"/>
+                </properties>
+              </component>
+              <component id="2c7d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Interface:"/>
+                </properties>
+              </component>
+              <hspacer id="dc95e">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="30356" class="javax.swing.JTextField" binding="interfaceText">
+                <constraints>
+                  <grid row="13" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="c84c5" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Comments:"/>
+                </properties>
+              </component>
+              <component id="a0a86" class="javax.swing.JLabel" binding="libNameLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Lib Name"/>
+                </properties>
+              </component>
+              <hspacer id="56ac8">
+                <constraints>
+                  <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <vspacer id="2a0ba">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+              <scrollpane id="da095" binding="classArgsScrollPane">
+                <constraints>
+                  <grid row="9" column="2" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.05"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="a9a83" class="javax.swing.JTextArea" binding="classArgumentsText">
+                    <constraints/>
+                    <properties>
+                      <rows value="2"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="f9ed8" binding="superclassParametersScrollPane">
+                <constraints>
+                  <grid row="11" column="2" row-span="2" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.05"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="d6b10" class="javax.swing.JTextArea" binding="superclassParametersText">
+                    <constraints/>
+                    <properties>
+                      <rows value="2"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="56a9d" binding="commentsScrollPane">
+                <constraints>
+                  <grid row="14" column="2" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.1"/>
+                </constraints>
+                <properties>
+                  <verticalScrollBarPolicy value="22"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="aa8cb" class="javax.swing.JTextArea" binding="commentsText">
+                    <constraints/>
+                    <properties>
+                      <rows value="5"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="c361b" binding="libPathScrollPane">
+                <constraints>
+                  <grid row="1" column="2" row-span="2" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.05"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="7b9c1" class="javax.swing.JLabel" binding="libPathLabel">
+                    <constraints/>
+                    <properties>
+                      <text value="Lib Path"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="3a860" class="javax.swing.JCheckBox" binding="bufferingCheckBox">
+                <constraints>
+                  <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Double Buffering"/>
+                </properties>
+              </component>
+              <vspacer id="97d73">
+                <constraints>
+                  <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <grid id="d39d2" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="Declarations"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <scrollpane id="2b7cd" binding="declarationsScrollPane">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.01" weighty="0.9"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </scrollpane>
+              <vspacer id="dbb1d">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+              <toolbar id="5539b">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                  <gridbag weightx="0.1" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <floatable value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="69bce" class="javax.swing.JButton" binding="addInportButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Add Input Port"/>
+                    </properties>
+                  </component>
+                  <component id="4ca53" class="javax.swing.JButton" binding="addOutputPortButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Add Output Port"/>
+                    </properties>
+                  </component>
+                  <component id="1cf09" class="javax.swing.JButton" binding="addSubmoduleButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Add Submodule"/>
+                    </properties>
+                  </component>
+                  <component id="84d6f" class="javax.swing.JButton" binding="addVariableButton">
+                    <constraints/>
+                    <properties>
+                      <text value="Add Variable"/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+              <toolbar id="f331">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                  <gridbag weightx="0.1" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <floatable value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="e4682" class="javax.swing.JButton" binding="modifyButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Modify"/>
+                    </properties>
+                  </component>
+                  <component id="cba1c" class="javax.swing.JButton" binding="renameButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Rename"/>
+                    </properties>
+                  </component>
+                  <component id="813fb" class="javax.swing.JButton" binding="copyVariableButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Copy"/>
+                    </properties>
+                  </component>
+                  <component id="77646" class="javax.swing.JButton" binding="deleteButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Delete"/>
+                    </properties>
+                  </component>
+                  <component id="60d9e" class="javax.swing.JButton" binding="upButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Up"/>
+                    </properties>
+                  </component>
+                  <component id="1735c" class="javax.swing.JButton" binding="downButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Down"/>
+                    </properties>
+                  </component>
+                  <component id="ad1" class="javax.swing.JButton" binding="topButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Top"/>
+                    </properties>
+                  </component>
+                  <component id="1d8d4" class="javax.swing.JButton" binding="bottomButton">
+                    <constraints/>
+                    <properties>
+                      <enabled value="false"/>
+                      <text value="Bottom"/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+            </children>
+          </grid>
+          <grid id="c4d99" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="Methods"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <toolbar id="22be4">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="20"/>
+                  </grid>
+                  <gridbag weightx="0.01" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <floatable value="false"/>
+                </properties>
+                <border type="none" title=""/>
+                <children>
+                  <component id="b9e66" class="javax.swing.JButton" binding="cutButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="resources/cut.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="4e969" class="javax.swing.JButton" binding="copyButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="resources/editcopy.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="1020" class="javax.swing.JButton" binding="pasteButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="resources/editpaste.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="7f30c" class="javax.swing.JButton" binding="selectAllButton">
+                    <constraints/>
+                    <properties>
+                      <icon value="resources/edit.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </toolbar>
+              <vspacer id="913ef">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </vspacer>
+              <grid id="42a50" binding="methodsMenuPanel" layout-manager="GridBagLayout">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.1" weighty="0.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <scrollpane id="e32d6">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.1" weighty="0.1"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="962fe" class="org.syntax.jedit.JEditTextArea" binding="methodsTextArea">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+      <vspacer id="75c42">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="a4be0">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="46cb4">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+      </hspacer>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="doubleBufferedButtonGroup">
+      <member id="e7d35"/>
+      <member id="a8d66"/>
+    </group>
+    <group name="newestSubButtonGroup">
+      <member id="1eac4"/>
+      <member id="6db4e"/>
+    </group>
+  </buttonGroups>
+</form>

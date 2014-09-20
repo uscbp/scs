@@ -1,0 +1,992 @@
+<module>
+	<library>DomineyModel</library>
+	<name>VisualInput</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz, int bigsz</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>visualinput</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>bigsz,bigsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>visualinputSub</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz,stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>currentTime</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>currentTimePlusDelta</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>double</categoryType>
+			<dimensions>0</dimensions>
+			<type>double</type>
+			<params></params>
+			<inits>0</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>value</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>float</categoryType>
+			<dimensions>0</dimensions>
+			<type>float</type>
+			<params></params>
+			<inits>90</inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>center</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerP3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerP2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerM2</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>centerM3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>bigszDiv3</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>bigszDiv3Time2Min1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>protocolNum</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslInt</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslInt0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>VisualInput</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>104</x>
+				<y>72</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>80</x>
+				<y>72</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>80</x>
+						<y>72</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>80</x>
+						<y>72</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>visualinput</name>
+				<parameters>bigsz,bigsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>80</x>
+						<y>16</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>16</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>80</x>
+						<y>16</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>16</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>visualinputSub</name>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>80</x>
+						<y>56</y>
+					</min>
+					<max>
+						<x>104</x>
+						<y>56</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>80</x>
+						<y>56</y>
+					</coordinate>
+					<coordinate>
+						<x>104</x>
+						<y>56</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>visualinput</name>
+				<type>NslDoutFloat2</type>
+				<parameters>bigsz,bigsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>192</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>64</y>
+					</corner>
+					<corner>
+						<x>216</x>
+						<y>80</y>
+					</corner>
+					<corner>
+						<x>204</x>
+						<y>96</y>
+					</corner>
+					<corner>
+						<x>192</x>
+						<y>96</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>176</x>
+						<y>80</y>
+					</min>
+					<max>
+						<x>192</x>
+						<y>80</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>visualinputSub</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz,stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>200</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>224</x>
+						<y>152</y>
+					</corner>
+					<corner>
+						<x>212</x>
+						<y>168</y>
+					</corner>
+					<corner>
+						<x>200</x>
+						<y>168</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>184</x>
+						<y>152</y>
+					</min>
+					<max>
+						<x>200</x>
+						<y>152</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment>Saccade_visualinput
+Saccade generator ala Scudder;  These arrays represent the increased
+ density of supcol projection to llbn as a function of increase eccentricity
+ in supcol. Function: spatial to temporal transformation.
+ Note, the fixation point for a 27x27 grid is 13,13
+ Also, the stimulation is applied in the stimulation module
+
+
+ 98/11/4: aa 
+ Dominey originaly used non-buffered ports.
+
+ Note: the second target has to be within 4 squares of the first target
+ for the monkey to see the second target.
+
+ Also, remember the coordinates below are in terms of array coordinates
+ thus the first number is the vertical and the second the horizontal
+ starting at the upper left. (sort of -y,x).
+
+ In the NSL2.1.7 model, if the visualinput is specifed from 0.01 to 0.05, 
+ it means that the stimulus does not go off until 0.055. 
+
+ Inaddition, the NSL2.1.7 model, started time at t=one delta for
+ simRuns.  This means that in terms of cycles something happening
+ during reported time=0.4 is really happening at NSLJ current time = 3.5. 
+ This also goes for stimulus; thus on at 0.02 becomes on at 0.015 in NSLJ,
+ or the 4th cycle.
+ Also stimulus is off at 0.07 it is really off at 0.075 in NSL2.1.7
+ thus really off at (0.075 + delta)=0.08 in NSLJ.
+
+ Note: FEF,LLBN,PPQV,SC,StimFEF,StimSC,VisualInput have parameters 
+ that change depending on the protocolNum.
+
+ 1000 msec =1.0 = 1 second
+  100 msec =0.1
+   10 msec =0.01
+    1 msec =0.001
+
+ Note: the end time and step/delta size is defined in the Model module.
+
+ protocolNum::1. single saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec
+ Fixation  0-0.02 at [(i=center,j=center)]
+ Target A 0.02-0.07 at [(i=center+3,j=(center-3)] 
+
+ protocolNum::2. memorySingleI saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.2 at [(i=center),(center)]
+ Target A &amp; fixation 0.02 - 0.07 at [(i=center-2),(j=center+2)]
+ fixation off at 0.58 
+ aa: the simple protocol 
+ causes the eyes to start moving at .15, and end at .195
+ and since the fixation is off at .02, 
+ it only takes .175 sec for the signal to propagate
+ throughout the complete circuit
+ Thus .58 changing to:
+ fixation off at 0.28
+
+ protocolNum::3. memorySingleII saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.2 at [(i=center),(center)]
+ Target A 0.02 - 0.07 at [(i=center-2),(j=center-3)]
+ fixation off at 0.58 
+ aa: the simple protocol 
+ causes the eyes to start moving at .15, and end at .195
+ and since the fixation is off at .02, 
+ it only takes .175 sec for the signal to propagate
+ throughout the complete circuit
+ Thus .58 changing to:
+ fixation off at 0.28
+
+ protocolNum::4. doubleI saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec
+ Fixation 0-0.02 at [(i=center),(j=center)]
+ Target A 0.02 - 0.07 at [(i=center-3),j=(center)]
+ Target B 0.08 - 0.12 at [(i=center-3),j=(center+3)]
+ aa: ppqv does a winnerTakeAll and the second target is not saying long
+ enough in ppqv, thus delaying 4 cycles
+ Target B 0.09 - 0.13 at [(i=center-3),j=(center+3)]
+
+ protocolNum::5. doubleII saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec
+ Fixation 0-0.02 at [(i=center),(j=center)]
+ Target A 0.02 - 0.07 at [(i=center),j=(center-2)]
+ Target B 0.08 - 0.12 at [(i=center-3),j=(center)]
+ aa: ppqv does a winnerTakeAll and the second target is not saying long
+ enough in ppqv, thus delaying 1 cycle
+ Target B 0.085 - 0.125 at [(i=center-3),j=(center+3)]
+
+ note the published doc does not give coordinates for 6 and 7
+ protocolNum::6. lesionSC saccade. // similar to simple
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec
+ Fixation  0-0.02 at [(i=center,j=center)]
+ Target A 0.02-0.4 at [(i=center+3,j=(center-3)] 
+
+ protocolNum::7. lesionFEF saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec
+ Fixation  0-0.02 at [(i=center,j=center)]
+ Target A 0.02-0.4 at [(i=center+3,j=(center-3)] 
+
+ protocolNum::8. memoryDouble saccade
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center),(j=center)]
+ Target A 0.02 - 0.05 at [(i=center-3),(j=center)]
+ Target B 0.085 - 0.10 at [(i=center-3),(j=center+3)]
+ New: Target B 0.085 - 0.11 at [(i=center-3),(j=center)]
+ added 2 cycles to the above.
+ Target A 0.165 - 0.665 at [(i=center-3),(j=center)]
+ New: Target A 0.165 - 0.5 at [(i=center-3),(j=center)]
+ since we do not need to keep in memory that long
+
+ protocolNum::9. stimulated SC CompensatoryI saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center+3)]
+ Stimulation 0.07 - .11 at [(i=center-3),(j=center)]
+ Reduced target error due to location - only going 1 direction
+
+ protocolNum::10. stimulated SC CompensatoryII saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center)]
+ Stimulation 0.07 - 0.11 at [(i=center),(j=center-2)]
+ Increased target error due to location - must go two directions
+
+ protocolNum::11 stimulated FEF CompensatoryI saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center+3)]
+ Stimulation 0.07 - 0.11 at [(i=center-3),(j=center)]
+
+ protocolNum::12. stimulated FEF Compensatory II saccade.
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center)]
+ Stimulation 0.07 - 0.11 at [(i=center),(j=center-2)]
+ Increased target error due to location - must go two directions
+
+ protocolNum::13. stimulated FEF LesionSC I saccade. - no SC
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center+3)]
+ Stimulation 0.07 - 0.11 at [(i=center-3),(j=center)]
+
+ protocolNum::14. stimulated SC LesionFEF I saccade. no FEF
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center,center)]
+ Target A 0.02 - 0.07 at [(i=center-3),(j=center+3)]
+ Stimulation 0.07 - 0.11 at [(i=center-3),(j=center)]
+
+ protocolNum::15. memoryDouble2 saccade
+ delta = 0.005 =  5 msec
+ end-time time 0.7 = .7 sec.
+ Fixation 0-0.02 at [(i=center),(j=center)]
+ Target A 0.02 - 0.07 at [(i=center),(j=center-2)]
+ Target B 0.09 - 0.105 at [(i=center-3),(j=center)]
+ Target A 0.17 - 0.5 at [(i=center),(j=center-2)]</comment>
+		<methods>public void initModule() 
+{	
+	visualinput.nslSetAccess('W');
+}
+
+public void initRun() 
+{	
+	protocolNum=-1;
+	protocolNum=(NslInt0)nslGetValue("domineyModel.protocolNum");
+	if (system.debug&gt;1) 
+	{
+		nslPrintln("VisualInput:initRun:The protocol num is: "+protocolNum);
+	}
+
+	bigszDiv3 =bigsz/3;
+	bigszDiv3Time2Min1=bigszDiv3 +bigszDiv3 -1;
+
+	// Have to do the following because we start at 0 and we do not
+	// know where the scheduler will schedule the VisualInput Module
+	// Note: for 9xby9 the center is 4,4
+	// Note: for 27xby27 the center is 13,13
+
+	visualinput=0;	
+
+	center = (int)bigsz/2;
+	centerP3 = center + 3;
+	centerP2 = center + 2;
+	centerM3 = center - 3;
+	centerM2 = center - 2;
+
+	visualinput[center][center]=value;
+}
+
+public void simRun() 
+{
+	//currentTime=system.getCurRunTime();	
+	currentTime=system.getCurTime();	
+	currentTimePlusDelta=currentTime+0.005;  //doing to match NSL2.1.7 
+
+	if (system.debug&gt;=1) 
+	{
+		nslPrintln("VisualInput:simRun: NSLJ currentTime: "+currentTime);
+		nslPrintln("VisualInput:simRun: NSLJ currentTimePlusDelta: "+currentTimePlusDelta);
+        }
+	currentTime=currentTimePlusDelta;
+
+	// all non-manual protocolNums have fixation on from 0 to 0.02
+	if ((protocolNum!=0)&amp;&amp;(currentTime&gt;=0.00)&amp;&amp;(currentTime&lt;=0.02))
+	{
+		visualinput[center][center]=value;
+	}
+	// ("single")
+	if (protocolNum==1) 
+	{
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07)) 
+		{
+			visualinput[centerP3][centerM3]=value;
+//			visualinput[center][centerP3]=value;
+		}
+		//  turn off target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerP3][centerM3]=0;
+//			visualinput[center][centerP3]=0;
+		}
+	}
+	// ("memorySingleI"))
+	else if (protocolNum==2) 
+	{
+		// was .58 but that delay was not needed
+		if (currentTime&gt;0.28)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM2][centerP2]=value;
+		}
+		// unlight first target
+		if (currentTime&gt;0.07)
+		{
+			visualinput[centerM2][centerP2]=0;
+		}
+	}
+	// ("memorySingleII"))
+	else if (protocolNum==3) 
+	{
+		// was .58 but that delay was not needed
+		if (currentTime&gt;0.28)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM2][centerM3]=value;
+		}
+		// unlight first target
+		if (currentTime&gt;0.07)
+		{
+			visualinput[centerM2][centerM3]=0;
+		}
+	}
+	//("doubleI")
+	else if (protocolNum==4) 
+	{
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// unlight first target
+		if ((currentTime&gt;0.07)&amp;&amp;(currentTime&lt;=0.08)) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+		// light up second target
+		if ((currentTime&gt;=0.09)&amp;&amp;(currentTime&lt;=0.13)) 
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// unlight second target
+		if (currentTime&gt;0.13) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+
+	} 
+	//("doubleII")
+	else if (protocolNum==5) 
+	{
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[center][centerM2]=value;
+		}
+		// unlight first target
+		if ((currentTime&gt;0.07)&amp;&amp;(currentTime&lt;=0.08)) 
+		{
+			visualinput[center][centerM2]=0;
+		}
+		// light up second target
+	        // 92doc: Target B 0.08 - 0.12
+	        // new: Target B 0.085 - 0.125
+		if ((currentTime&gt;=0.085)&amp;&amp;(currentTime&lt;=0.125)) 
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// unlight second target
+		if (currentTime&gt;0.125) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+	} 
+	// ("lesion SC single")
+	else if (protocolNum==6) 
+	{
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.4)) 
+		{
+			visualinput[centerP3][centerM3]=value;
+		}
+		//  turn off target
+		if (currentTime&gt;0.4) 
+		{
+			visualinput[centerP3][centerM3]=0;
+		}
+	}
+	// ("lesion FEF single")
+	else if (protocolNum==7) 
+	{
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.4)) 
+		{
+			visualinput[centerP3][centerM3]=value;
+		}
+		//  turn off target
+		if (currentTime&gt;0.4) 
+		{
+			visualinput[centerP3][centerM3]=0;
+		}
+	}
+	// ("memoryDouble"))
+	else if (protocolNum==8) 
+	{
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.05))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// unlight first target
+		if ((currentTime&gt;0.05)&amp;&amp;(currentTime&lt;=0.06))
+		{
+			visualinput[centerM3][center]=0;
+		}
+		// light up second target
+		// doc92: if ((currentTime&gt;=0.085)&amp;&amp;(currentTime&lt;=0.10)){
+		// worked:if ((currentTime&gt;=0.095)&amp;&amp;(currentTime&lt;=0.11)){
+	        // but shot past fovea	a little
+		if ((currentTime&gt;=0.085)&amp;&amp;(currentTime&lt;=0.11))
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// unlight second target
+		if ((currentTime&gt;0.11)&amp;&amp;(currentTime&lt;=0.115)) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+		// light first target for second time
+		if ((currentTime&gt;=0.165)&amp;&amp;(currentTime&lt;=0.5))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// unlight first target
+		if (currentTime&gt;0.5) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+	}
+	// Compensatory
+	//("stimulated SC I")) 
+	// rest done in StimSC.mod
+	else if (protocolNum==9) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+	}
+	//("stimulated SC II"))
+	// the rest of the stimulation is done in Stimulation
+	else if (protocolNum==10) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+	}
+	// ("stimulated FEF I"))
+	// the rest of the stimulation is done in Stimulation
+	else if (protocolNum==11) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+	}	
+	// ("stimulated FEF II")) 
+	// the rest of the stimulation is done in Stimulation
+	else if (protocolNum==12) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+		// the rest of the stimulation is done in Stimulation
+	}
+	// ("stimulated FEF - LesionSC I")) 
+	// the rest of the stimulation is done in Stimulation 
+	else if (protocolNum==13) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+		// the rest of the stimulation is done in Stimulation
+	}
+	// ("stimulated SC - LesionFEF I")) 
+	// the rest of the stimulation is done in Stimulation
+	else if (protocolNum==14) 
+	{
+		// the stimulation is the difference in these two modules
+		// fixation - off
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[centerM3][centerP3]=value;
+		}
+		// stimulus in Stimulation module
+		// unlight first target
+		if (currentTime&gt;0.07) 
+		{
+			visualinput[centerM3][centerP3]=0;
+		}
+		// the rest of the stimulation is done in Stimulation
+	}
+	// ("memoryDouble2"))
+	// from the description in the 92 article figure 12
+	else if (protocolNum==15) 
+	{
+		if (currentTime&gt;0.02)
+		{
+			visualinput[center][center]=0;
+		}
+		// light up first target
+		if ((currentTime&gt;=0.02)&amp;&amp;(currentTime&lt;=0.06))
+		{
+			visualinput[center][centerM2]=value;
+		}
+		// unlight first target
+		if ((currentTime&gt;0.06)&amp;&amp;(currentTime&lt;=0.07))
+		{
+			visualinput[center][centerM2]=0;
+		}
+		// light up second target
+		if ((currentTime&gt;=0.09)&amp;&amp;(currentTime&lt;=0.105))
+		{
+			visualinput[centerM3][center]=value;
+		}
+		// unlight second target
+		if ((currentTime&gt;0.105)&amp;&amp;(currentTime&lt;=0.11)) 
+		{
+			visualinput[centerM3][center]=0;
+		}
+		// light first target for second time
+		if ((currentTime&gt;=0.17)&amp;&amp;(currentTime&lt;=0.5))
+		{
+			visualinput[center][centerM2]=value;
+		}
+		// unlight first target
+		if (currentTime&gt;0.5) 
+		{
+			visualinput[center][centerM2]=0;
+		}
+	}
+	else if (protocolNum.get()==0) 
+	{
+		// do not do anything for the manual protocol
+		//nslPrintln("The manual protocol has been choosen.");
+	}
+	else 
+	{
+		nslPrintln("That protocolNum is not recognized: protocolNum: "+protocolNum);
+		//nslPrintln("That protocolNum is not recognized: protocolNum: ",protocolNum);
+	}
+
+	// for debug
+	nslGetSector(visualinputSub.get(),visualinput,bigszDiv3,bigszDiv3,bigszDiv3Time2Min1,bigszDiv3Time2Min1);
+	if (system.debug&gt;=1) 
+	{
+		nslPrintln("VisualInput:visualinputSub");
+		nslPrintln(visualinputSub);
+	}
+} //end simRun
+
+
+
+
+
+</methods>
+	</nslm>
+</module>

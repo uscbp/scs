@@ -1,0 +1,218 @@
+<module>
+	<library>HopfieldModel</library>
+	<name>HopfieldModel</name>
+	<version>1_1_1</version>
+	<type>model</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments></arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="SubModule">
+			<name>net</name>
+			<access>public</access>
+			<scope>local</scope>
+			<type>HopfieldNetwork</type>
+			<params>size</params>
+			<inits></inits>
+			<comment></comment>
+			<library>HopfieldModel</library>
+			<version>v1_1_1</version>
+			<getCurrentVersion>true</getCurrentVersion>
+		</variable>
+		<variable type="BasicVariable">
+			<name>size</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>int</categoryType>
+			<dimensions>0</dimensions>
+			<type>int</type>
+			<params></params>
+			<inits>6</inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+			<iconInstance>
+				<instanceName>net</instanceName>
+				<getCurrentVersion>true</getCurrentVersion>
+				<parameters>MAXSIZE,MAXSIZE2</parameters>
+				<icon>
+					<library>HopfieldModel</library>
+					<module>HopfieldNetwork</module>
+					<version>1_1_1</version>
+					<bounds>
+						<min>
+							<x>264</x>
+							<y>96</y>
+						</min>
+						<max>
+							<x>416</x>
+							<y>192</y>
+						</max>
+					</bounds>
+					<shape>
+						<min>
+							<x>288</x>
+							<y>96</y>
+						</min>
+						<max>
+							<x>392</x>
+							<y>192</y>
+						</max>
+					</shape>
+					<parts>
+						<part type="rect">
+							<bounds>
+								<min>
+									<x>24</x>
+									<y>0</y>
+								</min>
+								<max>
+									<x>128</x>
+									<y>96</y>
+								</max>
+							</bounds>
+							<color>-16711936</color>
+							<coordinates>
+								<coordinate>
+									<x>24</x>
+									<y>0</y>
+								</coordinate>
+								<coordinate>
+									<x>128</x>
+									<y>96</y>
+								</coordinate>
+							</coordinates>
+						</part>
+						<part type="NslDinInt2">
+							<name>input</name>
+							<parameters>MAXSIZE, MAXSIZE</parameters>
+							<portDirection>L</portDirection>
+							<signalType>E</signalType>
+							<bounds>
+								<min>
+									<x>0</x>
+									<y>48</y>
+								</min>
+								<max>
+									<x>24</x>
+									<y>48</y>
+								</max>
+							</bounds>
+							<color>-16711936</color>
+							<coordinates>
+								<coordinate>
+									<x>0</x>
+									<y>48</y>
+								</coordinate>
+								<coordinate>
+									<x>24</x>
+									<y>48</y>
+								</coordinate>
+							</coordinates>
+						</part>
+						<part type="NslDoutDouble0">
+							<name>energy</name>
+							<parameters></parameters>
+							<portDirection>L</portDirection>
+							<signalType>O</signalType>
+							<bounds>
+								<min>
+									<x>128</x>
+									<y>24</y>
+								</min>
+								<max>
+									<x>152</x>
+									<y>24</y>
+								</max>
+							</bounds>
+							<color>-16711936</color>
+							<coordinates>
+								<coordinate>
+									<x>128</x>
+									<y>24</y>
+								</coordinate>
+								<coordinate>
+									<x>152</x>
+									<y>24</y>
+								</coordinate>
+							</coordinates>
+						</part>
+						<part type="NslDoutInt2">
+							<name>output</name>
+							<parameters>MAXSIZE, MAXSIZE</parameters>
+							<portDirection>L</portDirection>
+							<signalType>O</signalType>
+							<bounds>
+								<min>
+									<x>128</x>
+									<y>72</y>
+								</min>
+								<max>
+									<x>152</x>
+									<y>72</y>
+								</max>
+							</bounds>
+							<color>-16711936</color>
+							<coordinates>
+								<coordinate>
+									<x>128</x>
+									<y>72</y>
+								</coordinate>
+								<coordinate>
+									<x>152</x>
+									<y>72</y>
+								</coordinate>
+							</coordinates>
+						</part>
+					</parts>
+				</icon>
+			</iconInstance>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initSys()
+{
+	system.setRunEndTime(300);
+	system.setTrainEndTime(1);
+	system.setTrainDelta(1);
+	system.setRunDelta(1);
+}
+
+public void initModule() 
+{
+	nslSetTrainDelta(1);
+	nslSetRunDelta(1);
+	NslInt2 in=new NslInt2(size, size);
+	in=-1;
+	net.input.setReference(in);
+	nslAddAreaCanvas("output", "output", net.output,-1,1);
+	nslAddTemporalCanvas("output", "energy", net.energy, -size*size,0, NslColor.getColor("BLACK"));
+	nslAddInputImageCanvas("input","input", net.input, -1, 1);
+	addPanel("control", "input");
+	addButtonToPanel("clear", "Clear Image", "control", "input");
+}
+
+public void clearPushed() 
+{
+	net.input.set(-1);
+}
+</methods>
+	</nslm>
+</module>

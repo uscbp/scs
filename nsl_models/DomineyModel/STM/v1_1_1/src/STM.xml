@@ -1,0 +1,335 @@
+<module>
+	<library>DomineyModel</library>
+	<name>STM</name>
+	<version>1_1_1</version>
+	<type>NslModule</type>
+	<getCurrentVersion>true</getCurrentVersion>
+	<arguments>int stdsz, int direction</arguments>
+	<buffering>false</buffering>
+	<imports>
+	</imports>
+	<variables>
+		<variable type="OutputPort">
+			<name>stm</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="OutputPort">
+			<name>weights</name>
+			<access>public</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslDoutFloat</categoryType>
+			<dimensions>2</dimensions>
+			<type>NslDoutFloat2</type>
+			<params>stdsz, stdsz</params>
+			<inits></inits>
+			<comment></comment>
+			<buffering>false</buffering>
+			<iconDirection>L</iconDirection>
+			<schDirection>L</schDirection>
+			<signalType>O</signalType>
+		</variable>
+		<variable type="BasicVariable">
+			<name>stm_k1</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>0</dimensions>
+			<type>NslFloat0</type>
+			<params></params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>weighttopo</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslFloat1</type>
+			<params>stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+		<variable type="BasicVariable">
+			<name>stmtopo</name>
+			<access>private</access>
+			<scope>local</scope>
+			<constant>false</constant>
+			<categoryType>NslFloat</categoryType>
+			<dimensions>1</dimensions>
+			<type>NslFloat1</type>
+			<params>stdsz</params>
+			<inits></inits>
+			<comment></comment>
+		</variable>
+	</variables>
+	<icon>
+		<library>DomineyModel</library>
+		<module>STM</module>
+		<version>1_1_1</version>
+		<bounds>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>112</x>
+				<y>72</y>
+			</max>
+		</bounds>
+		<shape>
+			<min>
+				<x>0</x>
+				<y>0</y>
+			</min>
+			<max>
+				<x>88</x>
+				<y>72</y>
+			</max>
+		</shape>
+		<parts>
+			<part type="rect">
+				<bounds>
+					<min>
+						<x>0</x>
+						<y>0</y>
+					</min>
+					<max>
+						<x>88</x>
+						<y>72</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>0</x>
+						<y>0</y>
+					</coordinate>
+					<coordinate>
+						<x>88</x>
+						<y>72</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>stm</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>88</x>
+						<y>24</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>24</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>88</x>
+						<y>24</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>24</y>
+					</coordinate>
+				</coordinates>
+			</part>
+			<part type="NslDoutFloat2">
+				<name>weights</name>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<signalType>O</signalType>
+				<bounds>
+					<min>
+						<x>88</x>
+						<y>48</y>
+					</min>
+					<max>
+						<x>112</x>
+						<y>48</y>
+					</max>
+				</bounds>
+				<color>-16711936</color>
+				<coordinates>
+					<coordinate>
+						<x>88</x>
+						<y>48</y>
+					</coordinate>
+					<coordinate>
+						<x>112</x>
+						<y>48</y>
+					</coordinate>
+				</coordinates>
+			</part>
+		</parts>
+	</icon>
+	<schematic>
+		<inports>
+		</inports>
+		<outports>
+			<outport>
+				<name>stm</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>232</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>104</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>120</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>136</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>136</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>120</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>120</y>
+					</max>
+				</bounds>
+			</outport>
+			<outport>
+				<name>weights</name>
+				<type>NslDoutFloat2</type>
+				<parameters>stdsz, stdsz</parameters>
+				<portDirection>L</portDirection>
+				<corners>
+					<corner>
+						<x>232</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>176</y>
+					</corner>
+					<corner>
+						<x>256</x>
+						<y>192</y>
+					</corner>
+					<corner>
+						<x>244</x>
+						<y>208</y>
+					</corner>
+					<corner>
+						<x>232</x>
+						<y>208</y>
+					</corner>
+				</corners>
+				<bounds>
+					<min>
+						<x>216</x>
+						<y>192</y>
+					</min>
+					<max>
+						<x>232</x>
+						<y>192</y>
+					</max>
+				</bounds>
+			</outport>
+		</outports>
+		<textObjects>
+		</textObjects>
+		<icons>
+		</icons>
+		<connections>
+		</connections>
+	</schematic>
+	<nslm>
+		<extends></extends>
+		<extendsParams></extendsParams>
+		<implements></implements>
+		<comment></comment>
+		<methods>public void initRun() 
+{
+	stm_k1=0.32;
+	weighttopo=0;
+	stmtopo=0;
+	weights=0;
+	stm=0;
+
+ 	if ((direction==1)||(direction==3))
+	{
+		weighttopo[0] = 5.7;
+		weighttopo[1] = 4.275;
+		weighttopo[2] = 2.85;
+		weighttopo[3] = 1.425;
+		stmtopo[0]=stm_k1*weighttopo[0];
+		stmtopo[1]=stm_k1*weighttopo[1];
+		stmtopo[2]=stm_k1*weighttopo[2];
+		stmtopo[3]=stm_k1*weighttopo[3];
+	}
+	if ((direction==2)||(direction==4))
+	{
+		weighttopo[5] = 1.425;
+		weighttopo[6] = 2.85;
+		weighttopo[7] = 4.275;
+		weighttopo[8] = 5.7;
+		stmtopo[5]=stm_k1*weighttopo[5];
+		stmtopo[6]=stm_k1*weighttopo[6];
+		stmtopo[7]=stm_k1*weighttopo[7];
+		stmtopo[8]=stm_k1*weighttopo[8];
+	}
+	if ((direction==1)||(direction==2))
+	{
+		weights = nslFillRows(weights,weighttopo);//fill all rows the same
+	        stm = nslFillRows(stm,stmtopo);
+	}
+	if ((direction==3)||(direction==4))
+	{
+		weights = nslFillColumns(weights,weighttopo);//fill all columns the same
+		stm = nslFillColumns(stm,stmtopo);
+	}
+ 	if (system.debug&gt;=26) 
+	{
+		nslPrintln("STM: initRun: direction  :" + direction);
+		nslPrintln("STM: initRun: stmtopo");
+		nslPrintln(stmtopo);
+		nslPrintln("STM: initRun: stm");
+		nslPrintln(stm);
+		nslPrintln("STM: initRun: weights:");
+		nslPrintln(weights);
+	}
+}
+
+
+
+
+</methods>
+	</nslm>
+</module>
